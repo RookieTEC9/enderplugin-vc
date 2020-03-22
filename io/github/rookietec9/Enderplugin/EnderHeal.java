@@ -25,7 +25,7 @@ public class EnderHeal implements CommandExecutor {
         return true;
       } 
       target.setHealth(20.0D);
-      sender.sendMessage(ChatColor.AQUA + args[0] + " " + "was successfully healed. :D");
+      sender.sendMessage(ChatColor.AQUA + args[0] + "was successfully healed. :D");
       return true;
     } 
     return true;

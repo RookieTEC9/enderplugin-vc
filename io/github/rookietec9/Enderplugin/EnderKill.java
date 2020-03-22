@@ -15,10 +15,10 @@ public class EnderKill implements CommandExecutor {
   
   public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
     Player target = sender.getServer().getPlayer(args[0]);
-    if (command.getName().equalsIgnoreCase("enderHeal")) {
-      if (args.length < 1) {
-        sender.sendMessage(ChatColor.DARK_RED + "WHO?");
-        return false;
+    if (command.getName().equalsIgnoreCase("enderKill")) {
+      if (args.length != 1) {
+        sender.sendMessage(ChatColor.DARK_RED + "One person at a time.");
+        return true;
       } 
       if (target == null) {
         sender.sendMessage(ChatColor.DARK_RED + args[0] + " is not currently cool.");

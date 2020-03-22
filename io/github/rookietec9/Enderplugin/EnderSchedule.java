@@ -12,7 +12,7 @@ public class EnderSchedule implements CommandExecutor {
     this.plugin = plugin;
   }
   
-  public boolean onCommand(CommandSender sender, Command cmd) {
+  public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
     if (cmd.getName().equalsIgnoreCase("EnderSchedule"));
     sender.sendMessage(ChatColor.DARK_PURPLE + "Server schedule as follows:");
     sender.sendMessage(ChatColor.BLUE + ChatColor.BOLD + "REGULAR DAYS");
@@ -21,9 +21,5 @@ public class EnderSchedule implements CommandExecutor {
     sender.sendMessage(ChatColor.BLUE + "WEEKDAYS:" + ChatColor.AQUA + "3PM-9PM");
     sender.sendMessage("message");
     return true;
-  }
-  
-  public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-    return false;
   }
 }
