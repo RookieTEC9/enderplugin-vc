@@ -5,14 +5,14 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-public class EnderPluginCommandExecutor implements CommandExecutor {
+public class EnderSchedule implements CommandExecutor {
   private final EnderPlugin plugin;
   
-  public EnderPluginCommandExecutor(EnderPlugin plugin) {
+  public EnderSchedule(EnderPlugin plugin) {
     this.plugin = plugin;
   }
   
-  public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+  public boolean onCommand(CommandSender sender, Command cmd) {
     if (cmd.getName().equalsIgnoreCase("EnderSchedule"));
     sender.sendMessage(ChatColor.DARK_PURPLE + "Server schedule as follows:");
     sender.sendMessage(ChatColor.BLUE + ChatColor.BOLD + "REGULAR DAYS");
@@ -21,5 +21,9 @@ public class EnderPluginCommandExecutor implements CommandExecutor {
     sender.sendMessage(ChatColor.BLUE + "WEEKDAYS:" + ChatColor.AQUA + "3PM-9PM");
     sender.sendMessage("message");
     return true;
+  }
+  
+  public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    return false;
   }
 }
