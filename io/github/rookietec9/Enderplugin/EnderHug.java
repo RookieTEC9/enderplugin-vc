@@ -24,15 +24,15 @@ public class EnderHug implements CommandExecutor {
         } else {
             Player target = sender.getServer().getPlayer(args[0]);
             if (!(sender instanceof Player)) {
-                sender.sendMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.DARK_RED + "This command can only be run by a player.");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.DARK_RED + "This command can only be run by a player.");
                 return true;
             } else if (target == null) {
-                sender.sendMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.DARK_RED + args[0] + " is not currently cool.");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.DARK_RED + args[0] + " is not currently cool.");
                 return true;
             } else {
                 target.sendMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.LIGHT_PURPLE + sender.getName() + " Hugged you. Return the favor with /enderkill");
-                sender.sendMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.AQUA + args[0] + " was successfully hugged. :D");
-                Bukkit.broadcastMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.LIGHT_PURPLE + sender.getName() + " Hugged " + target.getName());
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.AQUA + args[0] + " was successfully hugged. :D");
+                Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.LIGHT_PURPLE + sender.getName() + " Hugged " + target.getName());
                 return true;
             }
         }

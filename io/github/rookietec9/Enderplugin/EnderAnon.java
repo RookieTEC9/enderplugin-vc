@@ -34,10 +34,10 @@ public class EnderAnon implements CommandExecutor {
             }
 
             if (args.length == 2) {
-                sender.sendMessage(this.plugin.getConfig().getString("Plug Message") + args[1]);
-                target.sendMessage(this.plugin.getConfig().getString("Plug Message") + "You sent the message to " + sender.getName());
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message") + args[1]));
+                target.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message") + args[1]) + "You sent the message to " + sender.getName());
                 if (target == sender) {
-                    Bukkit.broadcastMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.DARK_BLUE + target.getName() + " Is so sad they must message themselves.");
+                    Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.DARK_BLUE + target.getName() + " Is so sad they must message themselves.");
                 }
             }
         }

@@ -22,7 +22,7 @@ public class EnderSchedule implements CommandExecutor {
         sender.sendMessage(ChatColor.BLUE + "WEEKDAYS:" + ChatColor.AQUA + "3PM-10PM");
         sender.sendMessage(ChatColor.BLUE + "SATURDAYS:" + ChatColor.AQUA + "3PM-11PM");
         sender.sendMessage(ChatColor.BLUE + "SUNDAYS:" + ChatColor.AQUA + "2PM-10PM");
-        sender.sendMessage("message");
+        sender.sendMessage(ChatColor.WHITE + "Server will be shut down after the end of school due to the fact on vacation.");
         return true;
     }
 }
