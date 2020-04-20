@@ -19,10 +19,12 @@ public class PlayerDamage implements Listener {
             String DamagedName = String.valueOf(p.getName());
             String DamageTooken = String.valueOf(p.getLastDamage());
             String DamageMax = String.valueOf(p.getMaxHealth());
+            String DamageKiller = String.valueOf(p.getKiller());
             if (p.getHealth() - event.getDamage() <= 0.0D) {
-                Bukkit.broadcastMessage("Death Report");
-                Bukkit.broadcastMessage(ChatColor.GOLD + DamagedName + ChatColor.YELLOW + " Finishing Damage:" + DamageTooken);
+                Bukkit.broadcastMessage(ChatColor.BOLD + "====Death Report====");
+                Bukkit.broadcastMessage(ChatColor.GOLD + DamagedName + ChatColor.RESET + " Finishing Damage: " + ChatColor.RED + DamageTooken);
                 Bukkit.broadcastMessage(ChatColor.RED + "Max health: " + ChatColor.RESET + DamageMax);
+                Bukkit.broadcastMessage(ChatColor.GREEN + "Killer: " + ChatColor.RESET + DamageKiller);
                 p.sendMessage("We have posted details about your death.");
             }
         }

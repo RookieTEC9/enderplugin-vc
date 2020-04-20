@@ -1,9 +1,11 @@
 package io.github.rookietec9.EnderPlugin;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Player;
 
 public class EnderHeal implements CommandExecutor {
@@ -15,17 +17,26 @@ public class EnderHeal implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player target = sender.getServer().getPlayer(args[0]);
+        String SenderName = String.valueOf(sender.getName());
         if (command.getName().equalsIgnoreCase("enderHeal")) {
             if (args.length < 1) {
                 sender.sendMessage(ChatColor.DARK_RED + "WHO?");
                 return false;
-            } else if (target == null) {
-                sender.sendMessage(ChatColor.DARK_RED + args[0] + " is not currently cool.");
-                return true;
             } else {
-                target.setHealth(20.0D);
-                sender.sendMessage(ChatColor.AQUA + args[0] + "was successfully healed. :D");
-                return true;
+                if (args.length == 0) {
+                    ((Damageable)sender).setHealth(20.0D);
+                    Bukkit.broadcastMessage(ChatColor.RED + SenderName + "Has healed himself.");
+                }
+
+                if (target == null) {
+                    sender.sendMessage(ChatColor.DARK_RED + args[0] + " is not currently cool.");
+                    return true;
+                } else {
+                    target.setHealth(20.0D);
+                    sender.sendMessage(ChatColor.AQUA + args[0] + "was successfully healed. :D");
+                    Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + SenderName + "healed " + target);
+                    return true;
+                }
             }
         } else {
             return true;
