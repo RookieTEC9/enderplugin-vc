@@ -29,6 +29,7 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("EnderVersion").setExecutor(new EnderVersion(this));
         this.getCommand("EnderAnon").setExecutor(new EnderAnon(this));
         this.RegisterEvents();
+        this.RegisterConfig();
     }
 
     public void RegisterEvents() {
@@ -40,5 +41,10 @@ public final class EnderPlugin extends JavaPlugin {
 
     public void onDisable() {
         this.getLogger().info("EnderPlugin by TEC9 has shut down.");
+    }
+
+    private void RegisterConfig() {
+        this.getConfig().options().copyDefaults(true);
+        this.saveDefaultConfig();
     }
 }

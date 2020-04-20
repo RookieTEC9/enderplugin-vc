@@ -23,6 +23,7 @@ public class PlayerDeath implements Listener {
             String DamageKiller = String.valueOf(p.getKiller().getName());
             String DamagerGM = String.valueOf(p.getKiller().getGameMode());
             String DamagerFly = String.valueOf(p.getKiller().getAllowFlight());
+            String DamagerWorld = String.valueOf(p.getWorld());
             if (p.getHealth() - event.getDamage() <= 0.0D) {
                 Bukkit.broadcastMessage(ChatColor.BOLD + "====Death Report====");
                 Bukkit.broadcastMessage(ChatColor.BOLD + "Death Log of " + DamagedNick);
@@ -32,6 +33,8 @@ public class PlayerDeath implements Listener {
                 Bukkit.broadcastMessage("Killer Flight enabled: " + DamagerFly);
                 Bukkit.broadcastMessage("Killer Gamemode: " + DamagerGM);
                 Bukkit.broadcastMessage("Max Damage: " + DamageMax);
+                Bukkit.broadcastMessage("World: " + DamagerWorld);
+                Bukkit.broadcastMessage("");
                 p.getKiller().sendTitle(ChatColor.RED + "You killed " + p.getName(), ChatColor.DARK_RED + "Nice.");
                 p.spigot().respawn();
             }
