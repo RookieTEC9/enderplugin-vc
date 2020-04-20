@@ -1,10 +1,9 @@
 package io.github.rookietec9.EnderPlugin.event.player;
 
-import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
@@ -12,21 +11,26 @@ public class PlayerDeath implements Listener {
     public PlayerDeath() {
     }
 
-    @EventHandler
     public void ondeath(EntityDamageByEntityEvent event) {
         if (event.getEntity().getType() == EntityType.PLAYER && event.getDamager().getType() == EntityType.PLAYER) {
             Player p = (Player)event.getEntity();
             String DamagedName = String.valueOf(p.getName());
-            String DamageTooken = String.valueOf(p.getLastDamage());
+            String DamagedNick = String.valueOf(p.getDisplayName());
             String DamageMax = String.valueOf(p.getMaxHealth());
-            String DamageKiller = String.valueOf(p.getLastDamage());
+            String LastDMG = String.valueOf(p.getLastDamage());
+            String DamageKiller = String.valueOf(p.getKiller());
+            String DamagerGM = String.valueOf(p.getKiller().getGameMode());
+            String DamagerFly = String.valueOf(p.getKiller().getAllowFlight());
             if (p.getHealth() - event.getDamage() <= 0.0D) {
                 Bukkit.broadcastMessage(ChatColor.BOLD + "====Death Report====");
-                Bukkit.broadcastMessage(ChatColor.GOLD + DamagedName + ChatColor.RESET + " Finishing Damage: " + ChatColor.RED + DamageTooken);
-                Bukkit.broadcastMessage(ChatColor.RED + "Max health: " + ChatColor.RESET + DamageMax);
-                Bukkit.broadcastMessage(ChatColor.GREEN + "Killer: " + ChatColor.RESET + DamageKiller);
-                p.sendMessage("We have posted details about your death.");
-                p.getKiller().sendTitle(ChatColor.RED + "You killed " + p, ChatColor.DARK_RED + "Nice.");
+                Bukkit.broadcastMessage("Victim: " + DamagedNick + " or " + DamagedName);
+                Bukkit.broadcastMessage(ChatColor.BOLD + "Death Log of " + DamagedNick);
+                Bukkit.broadcastMessage("Killer: " + DamageKiller);
+                Bukkit.broadcastMessage("Finishing Damage " + LastDMG);
+                Bukkit.broadcastMessage("Killer Flight enabled: " + DamagerFly);
+                Bukkit.broadcastMessage("Killer Gamemode:" + DamagerGM);
+                Bukkit.broadcastMessage("Max Damage: " + DamageMax);
+                p.getKiller().sendTitle(ChatColor.RED + "You killed " + p.getName(), ChatColor.DARK_RED + "Nice.");
             }
         }
 
