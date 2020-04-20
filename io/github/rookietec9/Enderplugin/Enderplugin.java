@@ -1,5 +1,7 @@
 package io.github.rookietec9.EnderPlugin;
 
+import io.github.rookietec9.EnderPlugin.event.player.PlayerChat;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class EnderPlugin extends JavaPlugin {
@@ -15,6 +17,12 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("EnderYT").setExecutor(new EnderYT(this));
         this.getCommand("EnderFinish").setExecutor(new EnderFinish(this));
         this.getCommand("EnderTP").setExecutor(new EnderTP(this));
+        this.RegisterEvents();
+    }
+
+    public void RegisterEvents() {
+        PluginManager pm = this.getServer().getPluginManager();
+        pm.registerEvents(new PlayerChat(), this);
     }
 
     public void onDisable() {
