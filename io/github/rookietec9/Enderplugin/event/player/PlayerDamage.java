@@ -14,7 +14,7 @@ public class PlayerDamage implements Listener {
 
     @EventHandler
     public void ondeath(EntityDamageByEntityEvent event) {
-        if (event.getEntity().getType() == EntityType.PLAYER && event.getDamager().getType() == EntityType.ZOMBIE) {
+        if (event.getEntity().getType() == EntityType.PLAYER && event.getDamager().getType() == EntityType.PLAYER) {
             Player p = (Player)event.getEntity();
             String DamagedName = String.valueOf(p.getName());
             String DamageTooken = String.valueOf(p.getLastDamage());

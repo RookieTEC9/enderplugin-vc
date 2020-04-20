@@ -22,23 +22,18 @@ public class EnderHeal implements CommandExecutor {
             if (args.length < 1) {
                 sender.sendMessage(ChatColor.DARK_RED + "WHO?");
                 return false;
+            } else if (target == null) {
+                sender.sendMessage(ChatColor.DARK_RED + args[0] + " is not currently cool.");
+                return true;
             } else {
-                if (args.length == 0) {
-                    ((Damageable)sender).setHealth(20.0D);
-                    Bukkit.broadcastMessage(ChatColor.RED + SenderName + "Has healed himself.");
-                }
-
-                if (target == null) {
-                    sender.sendMessage(ChatColor.DARK_RED + args[0] + " is not currently cool.");
-                    return true;
-                } else {
-                    target.setHealth(20.0D);
-                    sender.sendMessage(ChatColor.AQUA + args[0] + "was successfully healed. :D");
-                    Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + SenderName + "healed " + target);
-                    return true;
-                }
+                target.setHealth(20.0D);
+                sender.sendMessage(ChatColor.AQUA + args[0] + "was successfully healed. :D");
+                Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + SenderName + "healed " + target);
+                return true;
             }
         } else {
+            ((Damageable)sender).setHealth(20.0D);
+            Bukkit.broadcastMessage(ChatColor.RED + SenderName + "Has healed himself.");
             return true;
         }
     }
