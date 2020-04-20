@@ -6,7 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-class EnderHeal implements CommandExecutor {
+public class EnderHeal implements CommandExecutor {
     private final EnderPlugin plugin;
 
     public EnderHeal(EnderPlugin plugin) {

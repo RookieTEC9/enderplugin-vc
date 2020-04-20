@@ -8,8 +8,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class EnderTP implements CommandExecutor {
-    public EnderTP(EnderPlugin var1) {
-        throw new Error("Unresolved compilation problem: \n\tplugin cannot be resolved or is not a field\n");
+    private final EnderPlugin plugin;
+
+    public EnderTP(EnderPlugin plugin) {
+        this.plugin = plugin;
     }
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -21,7 +23,9 @@ public class EnderTP implements CommandExecutor {
 
             Player PlayerSender = (Player)sender;
             Double X = Double.parseDouble(args[0]);
-            Location Loc = new Location(PlayerSender.getWorld(), X, 0.0D, 0.0D);
+            Double Y = Double.parseDouble(args[1]);
+            Double Z = Double.parseDouble(args[2]);
+            Location Loc = new Location(PlayerSender.getWorld(), X, Y, Z);
             PlayerSender.teleport(Loc);
         }
 
