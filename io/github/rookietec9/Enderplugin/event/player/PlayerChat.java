@@ -14,7 +14,7 @@ public class PlayerChat implements Listener {
     public void OnPlayerChat(AsyncPlayerChatEvent event) {
         Player sender = event.getPlayer();
         String Message = event.getMessage().toLowerCase();
-        if (Message.contains("Rice")) {
+        if (Message.contains("rice")) {
             sender.sendMessage(ChatColor.DARK_RED + "Tasty");
         }
 
