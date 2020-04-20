@@ -24,15 +24,15 @@ public class EnderHug implements CommandExecutor {
         } else {
             Player target = sender.getServer().getPlayer(args[0]);
             if (!(sender instanceof Player)) {
-                sender.sendMessage(ChatColor.DARK_RED + "This command can only be run by a player.");
+                sender.sendMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.DARK_RED + "This command can only be run by a player.");
                 return true;
             } else if (target == null) {
-                sender.sendMessage(ChatColor.DARK_RED + args[0] + " is not currently cool.");
+                sender.sendMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.DARK_RED + args[0] + " is not currently cool.");
                 return true;
             } else {
-                target.sendMessage(ChatColor.LIGHT_PURPLE + sender.getName() + " Hugged you. Return the favor with /enderkill");
-                sender.sendMessage(ChatColor.AQUA + args[0] + " was successfully hugged. :D");
-                Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + sender.getName() + " Hugged " + target.getName());
+                target.sendMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.LIGHT_PURPLE + sender.getName() + " Hugged you. Return the favor with /enderkill");
+                sender.sendMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.AQUA + args[0] + " was successfully hugged. :D");
+                Bukkit.broadcastMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.LIGHT_PURPLE + sender.getName() + " Hugged " + target.getName());
                 return true;
             }
         }

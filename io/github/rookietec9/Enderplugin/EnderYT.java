@@ -19,10 +19,10 @@ public class EnderYT implements CommandExecutor {
         }
 
         if (!(sender instanceof Player)) {
-            sender.sendMessage(ChatColor.DARK_RED + "This command can only be run by a player.");
+            sender.sendMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.DARK_RED + "This command can only be run by a player.");
             return true;
         } else {
-            sender.sendMessage("" + ChatColor.BOLD + ChatColor.RED + "subscribe:");
+            sender.sendMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.BOLD + ChatColor.RED + "subscribe:");
             sender.sendMessage("" + ChatColor.BOLD + ChatColor.WHITE + "https://www.youtube.com/channel/UCPchALhSeAHEneiojMnNYEg?view_as=public");
             return true;
         }

@@ -7,7 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class EnderHeal implements CommandExecutor {
+class EnderHeal implements CommandExecutor {
     private final EnderPlugin plugin;
 
     public EnderHeal(EnderPlugin plugin) {
@@ -19,15 +19,15 @@ public class EnderHeal implements CommandExecutor {
         String SenderName = String.valueOf(sender.getName());
         if (command.getName().equalsIgnoreCase("enderHeal")) {
             if (args.length > 1) {
-                sender.sendMessage(ChatColor.DARK_RED + "WHO?");
+                sender.sendMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.DARK_RED + "WHO?");
                 return false;
             } else if (target == null) {
-                sender.sendMessage(ChatColor.DARK_RED + args[0] + " is not currently cool.");
+                sender.sendMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.DARK_RED + args[0] + " is not currently cool.");
                 return true;
             } else {
                 target.setHealth(20.0D);
-                sender.sendMessage(ChatColor.AQUA + args[0] + " was successfully healed. :D");
-                Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + SenderName + " healed " + target.getName());
+                sender.sendMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.AQUA + args[0] + " was successfully healed. :D");
+                Bukkit.broadcastMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.LIGHT_PURPLE + SenderName + " healed " + target.getName());
                 return true;
             }
         } else {

@@ -17,7 +17,7 @@ public class EnderSchedule implements CommandExecutor {
             ;
         }
 
-        sender.sendMessage(ChatColor.DARK_PURPLE + "Server schedule as follows:");
+        sender.sendMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.DARK_PURPLE + "Server schedule as follows:");
         sender.sendMessage("" + ChatColor.BLUE + ChatColor.BOLD + "REGULAR DAYS");
         sender.sendMessage(ChatColor.BLUE + "WEEKDAYS:" + ChatColor.AQUA + "3PM-10PM");
         sender.sendMessage(ChatColor.BLUE + "SATURDAYS:" + ChatColor.AQUA + "3PM-11PM");
