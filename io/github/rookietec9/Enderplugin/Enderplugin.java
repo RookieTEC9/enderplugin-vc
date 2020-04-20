@@ -3,6 +3,7 @@ package io.github.rookietec9.EnderPlugin;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerChat;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerDamage;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerDeath;
+import java.io.File;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -29,7 +30,10 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("EnderVersion").setExecutor(new EnderVersion(this));
         this.getCommand("EnderAnon").setExecutor(new EnderAnon(this));
         this.RegisterEvents();
-        this.RegisterConfig();
+        if (!(new File(this.getDataFolder(), "config.yml")).exists()) {
+            this.saveDefaultConfig();
+        }
+
     }
 
     public void RegisterEvents() {
@@ -41,10 +45,5 @@ public final class EnderPlugin extends JavaPlugin {
 
     public void onDisable() {
         this.getLogger().info("EnderPlugin by TEC9 has shut down.");
-    }
-
-    private void RegisterConfig() {
-        this.getConfig().options().copyDefaults(true);
-        this.saveConfig();
     }
 }
