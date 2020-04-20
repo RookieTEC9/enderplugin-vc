@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
@@ -11,7 +12,8 @@ public class PlayerDeath implements Listener {
     public PlayerDeath() {
     }
 
-    public void ondeath(EntityDamageByEntityEvent event) {
+    @EventHandler
+    public void onDeath(EntityDamageByEntityEvent event) {
         if (event.getEntity().getType() == EntityType.PLAYER && event.getDamager().getType() == EntityType.PLAYER) {
             Player p = (Player)event.getEntity();
             String DamagedName = String.valueOf(p.getName());
@@ -31,6 +33,7 @@ public class PlayerDeath implements Listener {
                 Bukkit.broadcastMessage("Killer Gamemode:" + DamagerGM);
                 Bukkit.broadcastMessage("Max Damage: " + DamageMax);
                 p.getKiller().sendTitle(ChatColor.RED + "You killed " + p.getName(), ChatColor.DARK_RED + "Nice.");
+                p.spigot().respawn();
             }
         }
 
