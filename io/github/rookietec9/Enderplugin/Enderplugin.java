@@ -7,8 +7,8 @@ import java.io.File;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class EnderPlugin extends JavaPlugin { //config.yml changes
-    public static String EnderPlugin = "§6EnderPlugin§r ";
+public final class EnderPlugin extends JavaPlugin {
+    public static String EnderPlugin = "§6[EnderPlugin]§r ";
     public static String EnderNotPlayer = "§4This command can only be run be a player ";
     public static String EnderOffline = "§4The requested player is not online. ";
 

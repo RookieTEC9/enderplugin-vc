@@ -1,23 +1,29 @@
 package io.github.rookietec9.EnderPlugin;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class EnderData {
-    public EnderData() {
+public class EnderData implements CommandExecutor {
+    private final EnderPlugin plugin;
+
+    public EnderData(EnderPlugin plugin) {
+        this.plugin = plugin;
     }
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player target = sender.getServer().getPlayer(args[0]);
         if (command.getName().equalsIgnoreCase("enderData")) {
-            if (args.length != 1) {
+            if (!sender.hasPermission("End.enderData")) {
+                sender.sendMessage("Invalid permissions");
+                return true;
+            } else if (args.length != 1) {
                 sender.sendMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_RED + "One person at a time.");
                 return true;
             } else if (target == null) {
-                sender.sendMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_RED + args[0] + " is not currently cool.");
+                sender.sendMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_RED + args[0] + EnderPlugin.EnderOffline);
                 return true;
             } else {
                 String WalkSpeed = String.valueOf(target.getWalkSpeed());
@@ -29,8 +35,6 @@ public class EnderData {
                 String FlySpeed = String.valueOf(target.getFlySpeed());
                 String NickName = String.valueOf(target.getDisplayName());
                 String FoodLevel = String.valueOf(target.getFoodLevel());
-                target.getGameMode();
-                target.getWalkSpeed();
                 String Health = String.valueOf(target.getHealth());
                 String MaxHealth = String.valueOf(target.getMaxHealth());
                 sender.sendMessage(EnderPlugin.EnderPlugin + "Creating report log for " + args[0]);
@@ -44,10 +48,6 @@ public class EnderData {
                 sender.sendMessage("Nickname: " + NickName);
                 sender.sendMessage("First Played: " + FirstPlayed);
                 sender.sendMessage("Hunger:" + FoodLevel);
-                if (target == sender) {
-                    Bukkit.broadcastMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_BLUE + "Some loser attempted injury.");
-                }
-
                 return true;
             }
         } else {

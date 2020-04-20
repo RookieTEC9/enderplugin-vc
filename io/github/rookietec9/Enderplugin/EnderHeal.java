@@ -20,7 +20,7 @@ class EnderHeal implements CommandExecutor {
         if (command.getName().equalsIgnoreCase("enderHeal")) {
             if (args.length > 1) {
                 sender.sendMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_RED + "WHO?");
-                return false;
+                return true;
             } else if (target == null) {
                 sender.sendMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_RED + args[0] + " is not currently cool.");
                 return true;
