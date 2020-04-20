@@ -13,11 +13,13 @@ public class PlayerDamage implements Listener {
 
     @EventHandler
     public void ondeath(EntityDamageByEntityEvent event) {
-        if (event.getEntity().getType() == EntityType.PLAYER && event.getDamager().getType() == EntityType.PLAYER) {
+        if (event.getEntity().getType() == EntityType.PLAYER && event.getDamager().getType() == EntityType.ZOMBIE) {
             Player p = (Player)event.getEntity();
-            String Damage = String.valueOf(event.getDamage());
+            String DamageTooken = String.valueOf(p.getLastDamage());
+            String DamageMax = String.valueOf(p.getMaxHealth());
             if (p.getHealth() - event.getDamage() <= 0.0D) {
-                Bukkit.broadcastMessage(p + "Finishing Damage:" + Damage);
+                Bukkit.broadcastMessage(p + "Finishing Damage:" + DamageTooken);
+                Bukkit.broadcastMessage(DamageMax);
             }
         }
 
