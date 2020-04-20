@@ -15,8 +15,18 @@ public class PlayerChat implements Listener {
         Player sender = event.getPlayer();
         String Message = event.getMessage().toLowerCase();
         if (Message.contains("rice")) {
-            event.setCancelled(true);
-            sender.sendMessage(ChatColor.DARK_RED + "Tasty");
+            event.setCancelled(false);
+            sender.sendTitle(ChatColor.DARK_RED + "Tasty", ChatColor.RED + "Can I have some?");
+        }
+
+        if (Message.contains("fuck")) {
+            event.setCancelled(false);
+            sender.sendMessage(ChatColor.DARK_RED + "Really... You will regret that.");
+        }
+
+        if (Message.contains("egg roll")) {
+            event.setCancelled(false);
+            sender.sendTitle(ChatColor.DARK_RED + "Tasty", ChatColor.RED + "Can I have some?");
         }
 
     }
