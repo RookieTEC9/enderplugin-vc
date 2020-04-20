@@ -36,6 +36,7 @@ public class EnderData implements CommandExecutor {
                 String GetWorld = String.valueOf(target.getWorld());
                 String Health = String.valueOf(target.getHealth());
                 String MaxHealth = String.valueOf(target.getMaxHealth());
+                String World = GetWorld.substring(17, GetWorld.length() - 1);
                 sender.sendMessage(EnderPlugin.EnderPlugin + "Creating report log for " + args[0]);
                 sender.sendMessage("Walk Speed: " + WalkSpeed);
                 sender.sendMessage("Fly Speed: " + FlySpeed);
@@ -44,7 +45,7 @@ public class EnderData implements CommandExecutor {
                 sender.sendMessage("XP:" + TotalXP);
                 sender.sendMessage("IP: " + Adress);
                 sender.sendMessage("Nickname: " + NickName);
-                sender.sendMessage("World: " + GetWorld);
+                sender.sendMessage("World: " + World);
                 sender.sendMessage("Hunger: " + FoodLevel);
                 return true;
             }
