@@ -20,17 +20,17 @@ public class PlayerDeath implements Listener {
             String DamagedNick = String.valueOf(p.getDisplayName());
             String DamageMax = String.valueOf(p.getMaxHealth());
             String LastDMG = String.valueOf(p.getLastDamage());
-            String DamageKiller = String.valueOf(p.getKiller());
+            String DamageKiller = String.valueOf(p.getKiller().getName());
             String DamagerGM = String.valueOf(p.getKiller().getGameMode());
             String DamagerFly = String.valueOf(p.getKiller().getAllowFlight());
             if (p.getHealth() - event.getDamage() <= 0.0D) {
                 Bukkit.broadcastMessage(ChatColor.BOLD + "====Death Report====");
-                Bukkit.broadcastMessage("Victim: " + DamagedNick + " or " + DamagedName);
                 Bukkit.broadcastMessage(ChatColor.BOLD + "Death Log of " + DamagedNick);
+                Bukkit.broadcastMessage("Victim: " + DamagedNick + " or " + DamagedName);
                 Bukkit.broadcastMessage("Killer: " + DamageKiller);
                 Bukkit.broadcastMessage("Finishing Damage " + LastDMG);
                 Bukkit.broadcastMessage("Killer Flight enabled: " + DamagerFly);
-                Bukkit.broadcastMessage("Killer Gamemode:" + DamagerGM);
+                Bukkit.broadcastMessage("Killer Gamemode: " + DamagerGM);
                 Bukkit.broadcastMessage("Max Damage: " + DamageMax);
                 p.getKiller().sendTitle(ChatColor.RED + "You killed " + p.getName(), ChatColor.DARK_RED + "Nice.");
                 p.spigot().respawn();
