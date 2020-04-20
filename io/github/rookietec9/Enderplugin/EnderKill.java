@@ -1,5 +1,6 @@
 package io.github.rookietec9.EnderPlugin;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -26,6 +27,8 @@ public class EnderKill implements CommandExecutor {
       } 
       target.setHealth(0.0D);
       sender.sendMessage(ChatColor.AQUA + args[0] + " " + "was successfully injured. :D");
+      if (target == sender)
+        Bukkit.broadcastMessage(ChatColor.DARK_BLUE + "Some loser commited suicide."); 
       return true;
     } 
     return true;

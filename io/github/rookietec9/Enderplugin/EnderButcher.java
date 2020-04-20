@@ -1,5 +1,6 @@
 package io.github.rookietec9.EnderPlugin;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,8 +18,8 @@ public class EnderButcher implements CommandExecutor {
     this.plugin = plugin;
   }
   
-  public boolean onCommand(CommandSender sender, Command command, String label, String[] args, Object object) {
-    object = EnderButcher.target;
+  public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    Object object = EnderButcher.target;
     Player player = sender.getServer().getPlayer(args[0]);
     if (command.getName().equalsIgnoreCase("enderButcher")) {
       if (player == null) {
@@ -34,10 +35,7 @@ public class EnderButcher implements CommandExecutor {
   }
   
   private PotionEffect PotionEffect(PotionEffectType harm, int i, int j) {
+    Bukkit.broadcastMessage(ChatColor.DARK_AQUA + "Action found");
     return null;
-  }
-  
-  public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-    return false;
   }
 }
