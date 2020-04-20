@@ -19,7 +19,11 @@ public class EnderHeal implements CommandExecutor {
         Player target = sender.getServer().getPlayer(args[0]);
         String SenderName = String.valueOf(sender.getName());
         if (command.getName().equalsIgnoreCase("enderHeal")) {
-            if (args.length < 1) {
+            if (args.length == 0) {
+                ((Damageable)sender).setHealth(20.0D);
+                Bukkit.broadcastMessage(ChatColor.RED + SenderName + "Has healed himself.");
+                return true;
+            } else if (args.length < 1) {
                 sender.sendMessage(ChatColor.DARK_RED + "WHO?");
                 return false;
             } else if (target == null) {
@@ -32,8 +36,6 @@ public class EnderHeal implements CommandExecutor {
                 return true;
             }
         } else {
-            ((Damageable)sender).setHealth(20.0D);
-            Bukkit.broadcastMessage(ChatColor.RED + SenderName + "Has healed himself.");
             return true;
         }
     }
