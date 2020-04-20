@@ -1,3 +1,11 @@
+package io.github.rookietec9.EnderPlugin;
+
+import io.github.rookietec9.EnderPlugin.event.player.PlayerChat;
+import io.github.rookietec9.EnderPlugin.event.player.PlayerDamage;
+import io.github.rookietec9.EnderPlugin.event.player.PlayerDeath;
+import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.java.JavaPlugin;
+
 public final class EnderPlugin extends JavaPlugin {
     public static String EnderPlugin = "§6EnderPlugin§r ";
     public static String EnderNotPlayer = "§4This command can only be run be a player ";
@@ -38,5 +46,6 @@ public final class EnderPlugin extends JavaPlugin {
     private void RegisterConfig() {
         this.getConfig().options().copyDefaults(true);
         this.saveConfig();
+        this.saveDefaultConfig();
     }
 }
