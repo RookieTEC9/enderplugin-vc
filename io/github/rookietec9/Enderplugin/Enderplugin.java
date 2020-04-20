@@ -45,6 +45,6 @@ public final class EnderPlugin extends JavaPlugin {
 
     private void RegisterConfig() {
         this.getConfig().options().copyDefaults(true);
-        this.saveDefaultConfig();
+        this.saveConfig();
     }
 }
