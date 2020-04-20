@@ -17,8 +17,7 @@ public class PlayerDamage implements Listener {
             Player p = (Player)event.getEntity();
             String Damage = String.valueOf(event.getDamage());
             if (p.getHealth() - event.getDamage() <= 0.0D) {
-                Bukkit.broadcastMessage("§bTest");
-                Bukkit.broadcastMessage(Damage);
+                Bukkit.broadcastMessage(p + "Finishing Damage:" + Damage);
             }
         }
 
