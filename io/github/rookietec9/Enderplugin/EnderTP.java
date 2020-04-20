@@ -21,6 +21,11 @@ public class EnderTP implements CommandExecutor {
                 return true;
             }
 
+            if (!(sender instanceof Player)) {
+                sender.sendMessage(ChatColor.DARK_RED + "This command can only be run by a player.");
+                return true;
+            }
+
             Player PlayerSender = (Player)sender;
             Double X = Double.parseDouble(args[0]);
             Double Y = Double.parseDouble(args[1]);
@@ -29,6 +34,6 @@ public class EnderTP implements CommandExecutor {
             PlayerSender.teleport(Loc);
         }
 
-        return false;
+        return true;
     }
 }
