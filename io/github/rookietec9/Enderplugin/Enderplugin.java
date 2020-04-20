@@ -17,7 +17,9 @@ public final class EnderPlugin extends JavaPlugin {
     public void onEnable() {
         this.getLogger().info("EnderPlugin by TEC9 has been successfully launched. :D");
         this.getCommand("EnderSchedule").setExecutor(new EnderSchedule(this));
+        this.getLogger().info("EnderSchedule activated");
         this.getCommand("EnderKill").setExecutor(new EnderKill(this));
+        this.getLogger().info("EnderKill activated");
         this.getCommand("EnderHeal").setExecutor(new EnderHeal(this));
         this.getCommand("EnderHug").setExecutor(new EnderHug(this));
         this.getCommand("EnderYT").setExecutor(new EnderYT(this));
