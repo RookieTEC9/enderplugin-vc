@@ -26,6 +26,7 @@ public class PlayerDeath implements Listener {
                 Bukkit.broadcastMessage(ChatColor.RED + "Max health: " + ChatColor.RESET + DamageMax);
                 Bukkit.broadcastMessage(ChatColor.GREEN + "Killer: " + ChatColor.RESET + DamageKiller);
                 p.sendMessage("We have posted details about your death.");
+                p.getKiller().sendTitle(ChatColor.RED + "You killed " + p, ChatColor.DARK_RED + "Nice.");
             }
         }
 

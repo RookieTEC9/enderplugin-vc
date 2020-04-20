@@ -20,7 +20,7 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("EnderFinish").setExecutor(new EnderFinish(this));
         this.getCommand("EnderTP").setExecutor(new EnderTP(this));
         this.getCommand("EnderVersion").setExecutor(new EnderVersion(this));
-        this.getCommand("EnderLog").setExecutor(new EnderLog(this));
+        this.getCommand("EnderAnon").setExecutor(new EnderAnon(this));
         this.RegisterEvents();
     }
 

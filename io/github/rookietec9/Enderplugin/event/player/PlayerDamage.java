@@ -20,7 +20,7 @@ public class PlayerDamage implements Listener {
             String DamageTooken = String.valueOf(Damaged.getLastDamage());
             String DamageMax = String.valueOf(Damaged.getMaxHealth());
             String DamageCurrent = String.valueOf(Damaged.getHealth());
-            Damager.sendMessage(ChatColor.RED + "You hit" + DamageName + "For " + DamageTooken);
+            Damager.sendMessage(ChatColor.RED + "You hit " + DamageName + " For " + DamageTooken);
             Damager.sendMessage(DamageName + ": " + ChatColor.YELLOW + DamageCurrent + ChatColor.GOLD + "/" + ChatColor.YELLOW + DamageMax);
             Damaged.getHealth();
             event.getDamage();
