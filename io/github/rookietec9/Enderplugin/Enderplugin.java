@@ -30,6 +30,7 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("EnderAnon").setExecutor(new EnderAnon(this));
         this.getCommand("EnderData").setExecutor(new EnderData(this));
         this.getCommand("EnderCraft").setExecutor(new EnderCraft(this));
+        this.getCommand("EnderReload").setExecutor(new EnderReload(this));
         this.RegisterEvents();
         if (!(new File(this.getDataFolder(), "config.yml")).exists()) {
             this.saveDefaultConfig();
