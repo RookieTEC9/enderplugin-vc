@@ -18,9 +18,9 @@ public class EnderVersion implements CommandExecutor {
         }
 
         sender.sendMessage(ChatColor.BOLD + "EnderPlugin");
-        sender.sendMessage(ChatColor.BLUE + "Version Cycle:" + ChatColor.BOLD + "PRE");
-        sender.sendMessage(ChatColor.DARK_BLUE + "Version:" + ChatColor.BOLD + "0.2.X");
-        sender.sendMessage(ChatColor.DARK_AQUA + "Compiled" + ChatColor.BOLD + "June");
+        sender.sendMessage(ChatColor.BLUE + "Version Cycle:" + ChatColor.BOLD + " PRE");
+        sender.sendMessage(ChatColor.DARK_BLUE + "Version:" + ChatColor.BOLD + " 0.2.X");
+        sender.sendMessage(ChatColor.DARK_AQUA + "Compiled:" + ChatColor.BOLD + " June");
         return true;
     }
 }

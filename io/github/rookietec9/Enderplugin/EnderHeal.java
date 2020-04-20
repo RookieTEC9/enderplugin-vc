@@ -31,11 +31,13 @@ public class EnderHeal implements CommandExecutor {
                 return true;
             } else {
                 target.setHealth(20.0D);
-                sender.sendMessage(ChatColor.AQUA + args[0] + "was successfully healed. :D");
-                Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + SenderName + "healed " + target);
+                sender.sendMessage(ChatColor.AQUA + args[0] + " was successfully healed. :D");
+                Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + SenderName + " healed " + target.getName());
                 return true;
             }
         } else {
+            ((Damageable)sender).setHealth(20.0D);
+            Bukkit.broadcastMessage(ChatColor.RED + SenderName + "Has healed himself.");
             return true;
         }
     }
