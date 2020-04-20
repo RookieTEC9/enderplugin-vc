@@ -30,11 +30,10 @@ public class EnderData implements CommandExecutor {
                 String AllowFlight = String.valueOf(target.getAllowFlight());
                 String Adress = String.valueOf(target.getAddress());
                 String TotalXP = String.valueOf(target.getTotalExperience());
-                String BedLocation = String.valueOf(target.getBedSpawnLocation());
-                String FirstPlayed = String.valueOf(target.getFirstPlayed());
                 String FlySpeed = String.valueOf(target.getFlySpeed());
                 String NickName = String.valueOf(target.getDisplayName());
                 String FoodLevel = String.valueOf(target.getFoodLevel());
+                String GetWorld = String.valueOf(target.getWorld());
                 String Health = String.valueOf(target.getHealth());
                 String MaxHealth = String.valueOf(target.getMaxHealth());
                 sender.sendMessage(EnderPlugin.EnderPlugin + "Creating report log for " + args[0]);
@@ -44,10 +43,9 @@ public class EnderData implements CommandExecutor {
                 sender.sendMessage("AllowFlight: " + AllowFlight);
                 sender.sendMessage("XP:" + TotalXP);
                 sender.sendMessage("IP: " + Adress);
-                sender.sendMessage("Spawn: " + BedLocation);
                 sender.sendMessage("Nickname: " + NickName);
-                sender.sendMessage("First Played: " + FirstPlayed);
-                sender.sendMessage("Hunger:" + FoodLevel);
+                sender.sendMessage("World: " + GetWorld);
+                sender.sendMessage("Hunger: " + FoodLevel);
                 return true;
             }
         } else {
