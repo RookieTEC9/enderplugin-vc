@@ -2,6 +2,7 @@ package io.github.rookietec9.EnderPlugin;
 
 import io.github.rookietec9.EnderPlugin.event.player.PlayerChat;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerDamage;
+import io.github.rookietec9.EnderPlugin.event.player.PlayerDeath;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -25,6 +26,7 @@ public final class EnderPlugin extends JavaPlugin {
     public void RegisterEvents() {
         PluginManager pm = this.getServer().getPluginManager();
         pm.registerEvents(new PlayerChat(), this);
+        pm.registerEvents(new PlayerDeath(), this);
         pm.registerEvents(new PlayerDamage(), this);
     }
 
