@@ -26,6 +26,8 @@ public class EnderHug implements CommandExecutor {
     } 
     target.sendMessage(ChatColor.LIGHT_PURPLE + sender.getName() + " Hugged you. Return the favor with /enderkill");
     sender.sendMessage(ChatColor.AQUA + args[0] + " was successfully hugged. :D");
+    if (args.length != 1)
+      return true; 
     return true;
   }
 }

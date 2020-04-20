@@ -10,6 +10,7 @@ public final class EnderPlugin extends JavaPlugin {
     getCommand("EnderHeal").setExecutor(new EnderHeal(this));
     getCommand("EnderHug").setExecutor(new EnderHug(this));
     getCommand("EnderYT").setExecutor(new EnderYT(this));
+    getCommand("EnderFinish").setExecutor(new EnderFinish(this));
   }
   
   public void onDisable() {
