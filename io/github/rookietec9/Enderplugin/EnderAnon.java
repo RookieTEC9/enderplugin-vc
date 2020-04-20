@@ -9,26 +9,27 @@ public class EnderAnon implements CommandExecutor {
         Player target = sender.getServer().getPlayer(args[0]);
         if (!command.getName().equalsIgnoreCase("enderAnon")) {
             return true;
-        } else if (args.length <= 2) {
-            sender.sendMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.DARK_RED + "Command syntax: /endermessage <user> message");
+        } else if (args.length < 2) {
+            sender.sendMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_RED + "Command syntax: /endermessage <user> message");
             return true;
         } else if (target == null) {
             sender.sendMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.DARK_RED + args[0] + " is not currently cool.");
             return true;
         } else {
-            if (args.length >= 2) {
+            if (args.length > 2) {
                 for(int i = 0; i < args.length; ++i) {
-                    sender.sendMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + args[i]);
+                    sender.sendMessage(EnderPlugin.EnderPlugin + args[i]);
                     target.sendMessage("You sent the message to " + sender.getName());
                     if (target == sender) {
-                        Bukkit.broadcastMessage(ChatColor.DARK_BLUE + target.getName() + " Is so sad they must message themselves.");
-                    } else {
-                        sender.sendMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + args[0]);
+                        Bukkit.broadcastMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_BLUE + target.getName() + " Is so sad they must message themselves.");
                     }
 
-                    target.sendMessage("You sent the message to " + sender.getName());
-                    if (target == sender) {
-                        Bukkit.broadcastMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.DARK_BLUE + target.getName() + " Is so sad they must message themselves.");
+                    if (args.length == 2) {
+                        sender.sendMessage(EnderPlugin.EnderPlugin + args[1]);
+                        target.sendMessage(EnderPlugin.EnderPlugin + "You sent the message to " + sender.getName());
+                        if (target == sender) {
+                            Bukkit.broadcastMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_BLUE + target.getName() + " Is so sad they must message themselves.");
+                        }
                     }
                 }
             }

@@ -18,16 +18,16 @@ public class EnderFinish implements CommandExecutor {
         Player target = sender.getServer().getPlayer(args[0]);
         if (command.getName().equalsIgnoreCase("enderFinish")) {
             if (args.length != 1) {
-                sender.sendMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.DARK_RED + "One person at a time.");
+                sender.sendMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_RED + "One person at a time.");
                 return true;
             } else if (target == null) {
-                sender.sendMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.DARK_RED + args[0] + " is not currently cool.");
+                sender.sendMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_RED + args[0] + " is not currently cool.");
                 return true;
             } else {
                 target.setHealth(1.0D);
-                sender.sendMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.AQUA + args[0] + " " + "was successfully injured. :D");
+                sender.sendMessage(EnderPlugin.EnderPlugin + ChatColor.AQUA + args[0] + " " + "was successfully injured. :D");
                 if (target == sender) {
-                    Bukkit.broadcastMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE]" + ChatColor.DARK_BLUE + "Some loser attempted injury.");
+                    Bukkit.broadcastMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_BLUE + "Some loser attempted injury.");
                 }
 
                 return true;
