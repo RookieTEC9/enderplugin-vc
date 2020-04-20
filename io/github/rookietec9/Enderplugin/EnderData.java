@@ -20,10 +20,10 @@ public class EnderData implements CommandExecutor {
                 sender.sendMessage("Invalid permissions");
                 return true;
             } else if (args.length != 1) {
-                sender.sendMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_RED + "One person at a time.");
+                sender.sendMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.DARK_RED + "One person at a time.");
                 return true;
             } else if (target == null) {
-                sender.sendMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_RED + args[0] + EnderPlugin.EnderOffline);
+                sender.sendMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.DARK_RED + args[0] + EnderPlugin.EnderOffline);
                 return true;
             } else {
                 String WalkSpeed = String.valueOf(target.getWalkSpeed());
@@ -36,8 +36,8 @@ public class EnderData implements CommandExecutor {
                 String GetWorld = String.valueOf(target.getWorld());
                 String Health = String.valueOf(target.getHealth());
                 String MaxHealth = String.valueOf(target.getMaxHealth());
-                String World = GetWorld.substring(17, GetWorld.length() - 1);
-                sender.sendMessage(EnderPlugin.EnderPlugin + "Creating report log for " + args[0]);
+                String World = GetWorld.substring(16, GetWorld.length() - 1);
+                sender.sendMessage(String.valueOf(this.plugin.getConfig().getString("Plug Message")) + "Creating report log for " + args[0]);
                 sender.sendMessage("Walk Speed: " + WalkSpeed);
                 sender.sendMessage("Fly Speed: " + FlySpeed);
                 sender.sendMessage("Health: " + Health + " / " + MaxHealth);

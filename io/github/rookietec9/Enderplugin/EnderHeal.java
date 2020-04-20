@@ -19,18 +19,20 @@ class EnderHeal implements CommandExecutor {
         String SenderName = String.valueOf(sender.getName());
         if (command.getName().equalsIgnoreCase("enderHeal")) {
             if (args.length > 1) {
-                sender.sendMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_RED + "WHO?");
+                sender.sendMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.DARK_RED + "WHO?");
                 return true;
             } else if (target == null) {
-                sender.sendMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_RED + args[0] + " is not currently cool.");
+                sender.sendMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.DARK_RED + args[0] + " is not currently cool.");
                 return true;
             } else {
                 target.setHealth(20.0D);
-                sender.sendMessage(EnderPlugin.EnderPlugin + ChatColor.AQUA + args[0] + " was successfully healed. :D");
-                Bukkit.broadcastMessage(EnderPlugin.EnderPlugin + ChatColor.LIGHT_PURPLE + SenderName + " healed " + target.getName());
+                sender.sendMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.AQUA + args[0] + " was successfully healed. :D");
+                Bukkit.broadcastMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.LIGHT_PURPLE + SenderName + " healed " + target.getName());
                 return true;
             }
         } else {
+            sender.sendMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.AQUA + args[0] + " was successfully healed. :D");
+            Bukkit.broadcastMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.LIGHT_PURPLE + SenderName + " healed " + target.getName());
             return true;
         }
     }

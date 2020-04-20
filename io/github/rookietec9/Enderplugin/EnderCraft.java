@@ -15,6 +15,7 @@ public class EnderCraft implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player Target = (Player)sender;
+        Target.sendMessage(this.plugin.getConfig().getString("Plug Message") + "Opening Crafting Table...");
         Target.openWorkbench((Location)null, true);
         return true;
     }

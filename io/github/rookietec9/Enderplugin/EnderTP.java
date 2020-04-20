@@ -17,12 +17,12 @@ public class EnderTP implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("EnderTP")) {
             if (args.length != 3) {
-                sender.sendMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_RED + "Please name 3 co-ordinates.");
+                sender.sendMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.DARK_RED + "Please name 3 co-ordinates.");
                 return true;
             }
 
             if (!(sender instanceof Player)) {
-                sender.sendMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_RED + "This command can only be run by a player.");
+                sender.sendMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.DARK_RED + "This command can only be run by a player.");
                 return true;
             }
 

@@ -19,12 +19,12 @@ public class EnderAnon implements CommandExecutor {
         if (command.getName().equalsIgnoreCase("enderAnon")) {
             Player target = sender.getServer().getPlayer(args[0]);
             if (args.length < 2) {
-                sender.sendMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_RED + "Command syntax: /endermessage <user> message");
+                sender.sendMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.DARK_RED + "Command syntax: /endermessage <user> message");
                 return true;
             }
 
             if (target == null) {
-                sender.sendMessage(ChatColor.GOLD + "[ENDERPLUGIN PRE] " + ChatColor.DARK_RED + args[0] + " is not currently cool.");
+                sender.sendMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.DARK_RED + args[0] + " is not currently cool.");
                 return true;
             }
 
@@ -34,10 +34,10 @@ public class EnderAnon implements CommandExecutor {
             }
 
             if (args.length == 2) {
-                sender.sendMessage(EnderPlugin.EnderPlugin + args[1]);
-                target.sendMessage(EnderPlugin.EnderPlugin + "You sent the message to " + sender.getName());
+                sender.sendMessage(this.plugin.getConfig().getString("Plug Message") + args[1]);
+                target.sendMessage(this.plugin.getConfig().getString("Plug Message") + "You sent the message to " + sender.getName());
                 if (target == sender) {
-                    Bukkit.broadcastMessage(EnderPlugin.EnderPlugin + ChatColor.DARK_BLUE + target.getName() + " Is so sad they must message themselves.");
+                    Bukkit.broadcastMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.DARK_BLUE + target.getName() + " Is so sad they must message themselves.");
                 }
             }
         }
