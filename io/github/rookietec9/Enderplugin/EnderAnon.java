@@ -7,7 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class EnderAnon implements CommandExecutor {
+public class EnderAnon implements CommandExecutor { //added to plugin.yml
     private final EnderPlugin plugin;
 
     public EnderAnon(EnderPlugin plugin) {
