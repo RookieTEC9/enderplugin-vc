@@ -30,6 +30,9 @@ public class EnderHeal implements CommandExecutor {
                 player.setHealth(20.0D);
                 Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Healed " + SenderName);
             }
+        } else {
+            player.setHealth(20.0D);
+            Bukkit.broadcastMessage("YOLO");
         }
 
         return true;

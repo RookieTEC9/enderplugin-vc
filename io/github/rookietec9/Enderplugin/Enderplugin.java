@@ -1,5 +1,6 @@
 package io.github.rookietec9.EnderPlugin;
 
+import io.github.rookietec9.EnderPlugin.event.inventory.InventoryClick;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerChat;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerDamage;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerDeath;
@@ -48,6 +49,7 @@ public final class EnderPlugin extends JavaPlugin {
         pm.registerEvents(new PlayerDeath(), this);
         pm.registerEvents(new PlayerDamage(), this);
         pm.registerEvents(new PlayerJoin(this), this);
+        pm.registerEvents(new InventoryClick(), this);
     }
 
     public void onDisable() {
