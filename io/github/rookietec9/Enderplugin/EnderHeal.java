@@ -7,7 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-class EnderHeal implements CommandExecutor {
+public class EnderHeal implements CommandExecutor {
     private final EnderPlugin plugin;
 
     public EnderHeal(EnderPlugin plugin) {
@@ -21,13 +21,15 @@ class EnderHeal implements CommandExecutor {
         if (command.getName().equalsIgnoreCase("enderHeal")) {
             if (args.length > 1) {
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.DARK_RED + "WHO?");
-            } else if (target == null) {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.DARK_RED + args[0] + " is not currently cool.");
-                return true;
-            }
+            } else {
+                if (target == null) {
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.DARK_RED + args[0] + " is not currently cool.");
+                    return true;
+                }
 
-            player.setHealth(20.0D);
-            Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Healed " + SenderName);
+                player.setHealth(20.0D);
+                Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Healed " + SenderName);
+            }
         }
 
         return true;
