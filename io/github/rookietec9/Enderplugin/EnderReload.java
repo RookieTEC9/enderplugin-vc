@@ -14,8 +14,8 @@ public class EnderReload implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("enderReload")) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Reloaded EnderPlugin.");
             this.plugin.reloadConfig();
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Reloaded EnderPlugin.");
             return true;
         } else {
             return true;

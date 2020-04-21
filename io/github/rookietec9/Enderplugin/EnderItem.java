@@ -20,7 +20,7 @@ public class EnderItem implements CommandExecutor {
         if (command.getName().equalsIgnoreCase("enderItem")) {
             Player player = (Player)sender;
             PlayerInventory inv = player.getInventory();
-            ItemStack Item = new ItemStack(Material.getMaterial(args[0]), Integer.parseInt(args[1]));
+            ItemStack Item = new ItemStack(Material.getMaterial(args[0].toUpperCase()), Integer.parseInt(args[1]));
             inv.addItem(new ItemStack[]{Item});
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Added Item.");
             return true;

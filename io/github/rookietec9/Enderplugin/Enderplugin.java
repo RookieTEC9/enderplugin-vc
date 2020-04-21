@@ -3,6 +3,7 @@ package io.github.rookietec9.EnderPlugin;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerChat;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerDamage;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerDeath;
+import io.github.rookietec9.EnderPlugin.event.player.PlayerJoin;
 import java.io.File;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -33,6 +34,7 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("EnderReload").setExecutor(new EnderReload(this));
         this.getCommand("EnderItem").setExecutor(new EnderItem(this));
         this.getCommand("EnderEnchant").setExecutor(new EnderEnchant(this));
+        this.getCommand("EnderTelly").setExecutor(new EnderTelly());
         this.RegisterEvents();
         if (!(new File(this.getDataFolder(), "config.yml")).exists()) {
             this.saveDefaultConfig();
@@ -45,6 +47,7 @@ public final class EnderPlugin extends JavaPlugin {
         pm.registerEvents(new PlayerChat(), this);
         pm.registerEvents(new PlayerDeath(), this);
         pm.registerEvents(new PlayerDamage(), this);
+        pm.registerEvents(new PlayerJoin(this), this);
     }
 
     public void onDisable() {

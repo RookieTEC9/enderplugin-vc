@@ -20,7 +20,7 @@ public class PlayerChat implements Listener {
         }
 
         if (Message.contains("fuck")) {
-            event.setCancelled(false);
+            event.setCancelled(true);
             sender.sendMessage(ChatColor.DARK_RED + "Really... You will regret that.");
         }
 

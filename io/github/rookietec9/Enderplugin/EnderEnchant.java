@@ -21,14 +21,11 @@ public class EnderEnchant implements CommandExecutor {
             Player player = (Player)sender;
             PlayerInventory inv = player.getInventory();
             ItemStack Item = new ItemStack(inv.getHeldItemSlot());
-            if (args[0] == "Sharpness") {
-                Item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, Integer.parseInt(args[2]));
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Enchanted Item.");
-            }
-
-            return true;
-        } else {
-            return true;
+            Enchantment Ench = Enchantment.getByName(args[1].toUpperCase());
+            Item.addUnsafeEnchantment(Ench, Integer.parseInt(args[2]));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Enchanted Item.");
         }
+
+        return true;
     }
 }
