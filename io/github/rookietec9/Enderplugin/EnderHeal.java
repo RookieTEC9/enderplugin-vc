@@ -15,15 +15,15 @@ public class EnderHeal implements CommandExecutor {
     }
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        Player target = sender.getServer().getPlayer(args[0]);
         Player player = (Player)sender;
-        String SenderName = String.valueOf(sender.getName());
+        String SenderName = String.valueOf(player.getName());
         if (command.getName().equalsIgnoreCase("enderHeal")) {
             if (args.length == 0) {
                 player.setHealth(20.0D);
                 player.sendMessage("Healed");
             }
 
+            Player target = sender.getServer().getPlayer(args[0]);
             if (args.length > 1) {
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.DARK_RED + "WHO?");
             } else {
