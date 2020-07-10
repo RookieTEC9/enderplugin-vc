@@ -30,7 +30,7 @@ public class EnderAnon implements CommandExecutor {
 
             if (args.length >= 2) {
                 String message = StringUtils.join(args, ' ', 1, args.length);
-                target.sendMessage(message);
+                target.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + message);
             }
 
             if (args.length == 2) {
