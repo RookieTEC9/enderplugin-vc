@@ -19,11 +19,6 @@ public class EnderHeal implements CommandExecutor {
         Player player = (Player)sender;
         String SenderName = String.valueOf(sender.getName());
         if (command.getName().equalsIgnoreCase("enderHeal")) {
-            if (args.length == 0) {
-                player.setHealth(20.0D);
-                player.sendMessage("Healed");
-            }
-
             if (args.length > 1) {
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.DARK_RED + "WHO?");
             } else {
