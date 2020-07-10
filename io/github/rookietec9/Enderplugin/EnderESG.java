@@ -23,11 +23,12 @@ public class EnderESG implements CommandExecutor {
             Player Player = (Player)sender;
             Inventory inv = Bukkit.createInventory(null, 45, "Choose Your Kit");
             HashMap<Player, Double> hm = new HashMap();
+            hm.put(Player, Double.valueOf(args[0]));
             ItemStack Booty = new ItemStack(Material.MONSTER_EGG, 1, (short)100);
             ItemMeta BootyMeta = Booty.getItemMeta();
-            BootyMeta.setDisplayName(ChatColor.DARK_PURPLE + "HorseTamer" + hm.get(Player.getName()));
+            BootyMeta.setDisplayName(ChatColor.GOLD + "HorseTamer " + hm.get(Player));
             ArrayList<String> lore = new ArrayList();
-            lore.add(ChatColor.GRAY + "A bit of Parkour mixed with pvp.");
+            lore.add(ChatColor.GRAY + "One who rides the horse survives.");
             BootyMeta.setLore(lore);
             Booty.setItemMeta(BootyMeta);
             inv.addItem(new ItemStack[]{Booty});
