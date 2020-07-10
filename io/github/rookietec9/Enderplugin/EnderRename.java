@@ -33,6 +33,10 @@ public class EnderRename implements CommandExecutor {
             ItemStack Current = player.getItemInHand();
             ItemMeta CurrentMeta = Current.getItemMeta();
             CurrentMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', Name));
+            if (Current.getType() == null) {
+                sender.sendMessage("Please hold something");
+            }
+
             Current.setItemMeta(CurrentMeta);
             sender.sendMessage("Renamed Item.");
         }
