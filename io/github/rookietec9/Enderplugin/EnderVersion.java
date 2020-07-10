@@ -14,12 +14,11 @@ public class EnderVersion implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("EnderVersion")) {
-            ;
         }
 
         sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.BOLD + "EnderPlugin");
         sender.sendMessage(ChatColor.BLUE + "Version Cycle:" + ChatColor.BOLD + " PRE");
-        sender.sendMessage(ChatColor.DARK_BLUE + "Version:" + ChatColor.BOLD + " 0.5.X");
+        sender.sendMessage(ChatColor.DARK_BLUE + "Version:" + ChatColor.BOLD + " 0.6.X");
         sender.sendMessage(ChatColor.DARK_AQUA + "Compiled:" + ChatColor.BOLD + " June");
         return true;
     }
