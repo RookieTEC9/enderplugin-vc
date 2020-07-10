@@ -24,7 +24,7 @@ public class EnderFake implements CommandExecutor {
                 Player target = sender.getServer().getPlayer(args[0]);
                 String message = StringUtils.join(args, ' ', 1, args.length);
                 String Name = target.getDisplayName();
-                Bukkit.broadcastMessage(Name + " " + message);
+                Bukkit.broadcastMessage("<" + Name + ">" + " " + message);
                 return true;
             }
         } else {
