@@ -38,6 +38,7 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("EnderTelly").setExecutor(new EnderTelly());
         this.getCommand("EnderRename").setExecutor(new EnderRename(this));
         this.getCommand("EnderESG").setExecutor(new EnderESG());
+        this.getCommand("EnderFake").setExecutor(new EnderFake(this));
         this.RegisterEvents();
         if (!(new File(this.getDataFolder(), "config.yml")).exists()) {
             this.saveDefaultConfig();

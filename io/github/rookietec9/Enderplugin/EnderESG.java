@@ -21,7 +21,7 @@ public class EnderESG implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("enderESG")) {
             Player Player = (Player)sender;
-            Inventory inv = Bukkit.createInventory(null, 45, "Choose Your Kit");
+            Inventory inv = Bukkit.createInventory((InventoryHolder)null, 45, "Choose Your Kit");
             HashMap<Player, Double> hm = new HashMap();
             hm.put(Player, Double.valueOf(args[0]));
             ItemStack HorseTamer = new ItemStack(Material.MONSTER_EGG, 1, (short)100);
@@ -36,10 +36,20 @@ public class EnderESG implements CommandExecutor {
             KnightMeta.setDisplayName("§9Knight " + String.valueOf(hm.get(Player)).substring(0, String.valueOf(hm.get(Player)).length() - 2));
             ArrayList<String> KnightLore = new ArrayList();
             KnightLore.add(ChatColor.GRAY + "Brave and strong until the end.");
+            ItemStack Archer = new ItemStack(Material.BOW, 1, (short)100);
+            ItemMeta ArcherMeta = Archer.getItemMeta();
+            ArcherMeta.setDisplayName(ChatColor.RED + "Archer " + String.valueOf(hm.get(Player)).substring(0, String.valueOf(hm.get(Player)).length() - 2));
+            ArrayList<String> ArcherLore = new ArrayList();
+            ArcherLore.add(ChatColor.GRAY + "Shotee!");
+            HorseMeta.setLore(HorseLore);
+            HorseTamer.setItemMeta(HorseMeta);
+            ArcherMeta.setLore(ArcherLore);
+            Archer.setItemMeta(ArcherMeta);
             KnightMeta.setLore(KnightLore);
             Knight.setItemMeta(KnightMeta);
             inv.addItem(new ItemStack[]{HorseTamer});
             inv.addItem(new ItemStack[]{Knight});
+            inv.addItem(new ItemStack[]{Archer});
             Player.openInventory(inv);
             return true;
         } else {
