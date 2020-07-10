@@ -18,6 +18,16 @@ public class EnderRename implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("enderRename")) {
+            if (!(sender instanceof Player)) {
+                sender.sendMessage("This command can only be run by a player.");
+                return true;
+            }
+
+            if (args.length == 0) {
+                sender.sendMessage("Please write a name");
+                return true;
+            }
+
             String Name = StringUtils.join(args, ' ', 0, args.length);
             Player player = (Player)sender;
             ItemStack Current = player.getItemInHand();
