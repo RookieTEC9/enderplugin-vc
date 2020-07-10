@@ -2,6 +2,7 @@ package io.github.rookietec9.EnderPlugin;
 
 import net.md_5.bungee.api.ChatColor;
 import org.apache.commons.lang.StringUtils;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -33,8 +34,9 @@ public class EnderRename implements CommandExecutor {
             ItemStack Current = player.getItemInHand();
             ItemMeta CurrentMeta = Current.getItemMeta();
             CurrentMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', Name));
-            if (Current.getType() == null) {
+            if (Current.getType() == Material.AIR) {
                 sender.sendMessage("Please hold something");
+                return true;
             }
 
             Current.setItemMeta(CurrentMeta);
