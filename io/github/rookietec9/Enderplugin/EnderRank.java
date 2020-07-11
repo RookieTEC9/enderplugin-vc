@@ -23,6 +23,7 @@ public class EnderRank extends JavaPlugin implements CommandExecutor {
             if (cmd.getName().equalsIgnoreCase("EnderRank")) {
                 String value = p.getPlayerListName();
                 p.setPlayerListName("Owner" + value);
+                p.sendMessage("I");
             }
 
             return true;
