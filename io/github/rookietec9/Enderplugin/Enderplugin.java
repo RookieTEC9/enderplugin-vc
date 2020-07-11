@@ -65,7 +65,7 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("EnderItem").setExecutor(new EnderItem(this));
         this.getCommand("EnderEnchant").setExecutor(new EnderEnchant(this));
         this.getCommand("EnderTelly").setExecutor(new EnderTelly());
-        this.getCommand("EnderRename").setExecutor(new EnderRename(this));
+        this.getCommand("Rename").setExecutor(new EnderRename(this));
         this.getCommand("EnderESG").setExecutor(new EnderESG());
         this.getCommand("EnderFake").setExecutor(new EnderFake(this));
         this.getCommand("EnderRank").setExecutor(new EnderRank(this));

@@ -1,5 +1,6 @@
-package io.github.rookietec9.EnderPlugin;
+package io.github.rookietec9.EnderPlugin.commands.player.item;
 
+import io.github.rookietec9.EnderPlugin.EnderPlugin;
 import net.md_5.bungee.api.ChatColor;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Material;
@@ -18,7 +19,7 @@ public class EnderRename implements CommandExecutor {
     }
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (command.getName().equalsIgnoreCase("enderRename")) {
+        if (command.getName().equalsIgnoreCase("Rename")) {
             if (!(sender instanceof Player)) {
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "This command can only be run by a player.");
                 return true;
