@@ -1,5 +1,24 @@
 package io.github.rookietec9.EnderPlugin;
 
+import io.github.rookietec9.EnderPlugin.commands.EnderReload;
+import io.github.rookietec9.EnderPlugin.commands.player.chat.EnderAnon;
+import io.github.rookietec9.EnderPlugin.commands.player.chat.EnderData;
+import io.github.rookietec9.EnderPlugin.commands.player.chat.EnderFake;
+import io.github.rookietec9.EnderPlugin.commands.player.chat.EnderHug;
+import io.github.rookietec9.EnderPlugin.commands.player.chat.EnderRank;
+import io.github.rookietec9.EnderPlugin.commands.player.damagable.EnderFinish;
+import io.github.rookietec9.EnderPlugin.commands.player.damagable.EnderHeal;
+import io.github.rookietec9.EnderPlugin.commands.player.damagable.EnderKill;
+import io.github.rookietec9.EnderPlugin.commands.player.item.EnderCraft;
+import io.github.rookietec9.EnderPlugin.commands.player.item.EnderEnchant;
+import io.github.rookietec9.EnderPlugin.commands.player.item.EnderItem;
+import io.github.rookietec9.EnderPlugin.commands.player.item.EnderRename;
+import io.github.rookietec9.EnderPlugin.commands.player.menu.EnderESG;
+import io.github.rookietec9.EnderPlugin.commands.player.menu.EnderTelly;
+import io.github.rookietec9.EnderPlugin.commands.player.other.EnderTP;
+import io.github.rookietec9.EnderPlugin.commands.text.EnderSchedule;
+import io.github.rookietec9.EnderPlugin.commands.text.EnderVersion;
+import io.github.rookietec9.EnderPlugin.commands.text.EnderYT;
 import io.github.rookietec9.EnderPlugin.event.inventory.InventoryClick;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerChat;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerDamage;
