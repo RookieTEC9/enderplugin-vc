@@ -51,8 +51,10 @@ public class EnderRank implements CommandExecutor {
                         playerSender.setDisplayName(MemName + Name);
                         playerSender.setPlayerListName(MemName + realName);
                         return true;
+                    } else if (args[0].toUpperCase() == "MEMBER" && args[0] != "CO" && args[0] != "OWNER") {
+                        return true;
                     } else {
-                        sender.sendMessage("Pleas enter either " + ChatColor.YELLOW + "OWNER " + ChatColor.DARK_BLUE + "CO §7MEMBER");
+                        sender.sendMessage("Please enter either " + ChatColor.YELLOW + "OWNER " + ChatColor.DARK_BLUE + "CO §7MEMBER");
                         return true;
                     }
                 } else if (target == null) {
