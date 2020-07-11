@@ -21,20 +21,8 @@ public class EnderRank extends JavaPlugin implements CommandExecutor {
         } else {
             Player p = (Player)sender;
             if (cmd.getName().equalsIgnoreCase("EnderRank")) {
-                if (args.length == 0) {
-                    p.sendMessage(ChatColor.RED + "You did not specify a nickname!");
-                    return true;
-                }
-
-                if (args[0] == "1") {
-                    sender.sendMessage("F");
-                }
-
-                String Mod = "";
-                Mod = "&f[&cMOD&f]".substring(0, "&f[&cMOD&f]".length());
-                p.sendMessage(ChatColor.GREEN + "You have changed your nickname to " + Mod);
-                this.getConfig().set(p.getName(), Mod);
-                this.saveConfig();
+                String value = p.getPlayerListName();
+                p.setPlayerListName("Owner" + value);
             }
 
             return true;
