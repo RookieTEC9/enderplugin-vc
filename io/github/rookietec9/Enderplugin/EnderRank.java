@@ -39,15 +39,15 @@ public class EnderRank implements CommandExecutor {
                     playerSender.sendMessage("You cannot put a rank on this player.");
                     return true;
                 } else if (args.length == 1) {
-                    if (args[0].equalsIgnoreCase("Owner")) {
+                    if (args[0].toUpperCase() == "OWNER") {
                         playerSender.setDisplayName(ownerName + Name);
                         playerSender.setPlayerListName(ownerName + realName);
                         return true;
-                    } else if (args[0].equalsIgnoreCase("Co")) {
+                    } else if (args[0].toUpperCase() == "CO") {
                         playerSender.setDisplayName(CoName + Name);
                         playerSender.setPlayerListName(CoName + realName);
                         return true;
-                    } else if (args[0].equalsIgnoreCase("Member")) {
+                    } else if (args[0].toUpperCase() == "MEMBER") {
                         playerSender.setDisplayName(MemName + Name);
                         playerSender.setPlayerListName(MemName + realName);
                         return true;
@@ -58,15 +58,15 @@ public class EnderRank implements CommandExecutor {
                 } else if (target == null) {
                     sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Request Player is not online.");
                     return true;
-                } else if (args[1].equalsIgnoreCase("Owner")) {
+                } else if (args[1].toUpperCase() == "OWNER") {
                     target.setDisplayName(ownerName + Name);
                     playerSender.setPlayerListName(ownerName + realName);
                     return true;
-                } else if (args[1].equalsIgnoreCase("Co")) {
+                } else if (args[1].toUpperCase() == "C0") {
                     target.setDisplayName(CoName + Name);
                     playerSender.setPlayerListName(CoName + realName);
                     return true;
-                } else if (args[1].equalsIgnoreCase("Member")) {
+                } else if (args[1].toUpperCase() == "MEMBER") {
                     target.setDisplayName(MemName + Name);
                     playerSender.setPlayerListName(MemName + realName);
                     return true;
