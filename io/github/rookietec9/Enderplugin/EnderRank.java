@@ -2,12 +2,12 @@ package io.github.rookietec9.EnderPlugin;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class EnderRank extends JavaPlugin implements Listener {
+public class EnderRank extends JavaPlugin implements CommandExecutor {
     private EnderPlugin plugin;
 
     public EnderRank(EnderPlugin plugin) {
