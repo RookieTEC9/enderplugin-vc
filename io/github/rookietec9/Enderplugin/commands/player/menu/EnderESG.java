@@ -22,7 +22,7 @@ public class EnderESG implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("enderESG")) {
             Player Player = (Player)sender;
-            Inventory inv = Bukkit.createInventory(null, 45, "Choose Your Kit");
+            Inventory inv = Bukkit.createInventory((InventoryHolder)null, 45, "Choose Your Kit");
             HashMap<Player, Double> hm = new HashMap();
             hm.put(Player, Double.valueOf(args[0]));
             ItemStack HorseTamer = new ItemStack(Material.MONSTER_EGG, 1, (short)100);
@@ -59,7 +59,7 @@ public class EnderESG implements CommandExecutor {
             WitchLore.add(ChatColor.GRAY + "Because nobody likes slowness.");
             ItemStack Assassin = new ItemStack(Material.DIAMOND_AXE, 1);
             ItemMeta AssassinMeta = Assassin.getItemMeta();
-            AssassinMeta.setDisplayName(ChatColor.DARK_RED + "Rabbit " + String.valueOf(hm.get(Player)).substring(0, String.valueOf(hm.get(Player)).length() - 2));
+            AssassinMeta.setDisplayName(ChatColor.DARK_RED + "Assassin  " + String.valueOf(hm.get(Player)).substring(0, String.valueOf(hm.get(Player)).length() - 2));
             ArrayList<String> AssassinLore = new ArrayList();
             AssassinLore.add(ChatColor.GRAY + "These gloves? Oh, thats just ketchup...");
             ItemStack Enderman = new ItemStack(Material.ENDER_PEARL, 1);
@@ -68,7 +68,7 @@ public class EnderESG implements CommandExecutor {
             ArrayList<String> EnderLore = new ArrayList();
             EnderLore.add(ChatColor.GRAY + "So long.");
             ItemStack Armorer = new ItemStack(Material.DIAMOND_CHESTPLATE, 1);
-            ItemMeta ArmorerMeta = Knight.getItemMeta();
+            ItemMeta ArmorerMeta = Armorer.getItemMeta();
             ArmorerMeta.addEnchant(Enchantment.DURABILITY, 1, false);
             ArmorerMeta.setDisplayName(ChatColor.DARK_PURPLE + "Armorer " + String.valueOf(hm.get(Player)).substring(0, String.valueOf(hm.get(Player)).length() - 2));
             ArrayList<String> ArmorerLore = new ArrayList();
@@ -80,7 +80,7 @@ public class EnderESG implements CommandExecutor {
             NinjaLore.add(ChatColor.GRAY + "Quick but silent. Unless in a Skype chat.");
             ItemStack Lava = new ItemStack(Material.MONSTER_EGG, 1);
             ItemMeta LavaMeta = Lava.getItemMeta();
-            LavaMeta.setDisplayName(ChatColor.DARK_RED + "Fury Slime" + String.valueOf(hm.get(Player)).substring(0, String.valueOf(hm.get(Player)).length() - 2));
+            LavaMeta.setDisplayName(ChatColor.DARK_RED + "Fury Slime " + String.valueOf(hm.get(Player)).substring(0, String.valueOf(hm.get(Player)).length() - 2));
             ArrayList<String> LavaLore = new ArrayList();
             LavaLore.add(ChatColor.GRAY + "Bouncy. Fury.");
             HorseMeta.setLore(HorseLore);
