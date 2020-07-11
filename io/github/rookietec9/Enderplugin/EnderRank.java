@@ -1,5 +1,6 @@
 package io.github.rookietec9.EnderPlugin;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -21,6 +22,7 @@ public class EnderRank implements CommandExecutor {
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.DARK_RED + "This command can only be run by a player.");
             return true;
         } else {
+            Bukkit.broadcastMessage("EH");
             Player player = (Player)sender;
             String string = player.getName();
             player.setDisplayName("Testing" + string);
