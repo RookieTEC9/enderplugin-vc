@@ -38,9 +38,6 @@ public class EnderRank implements CommandExecutor {
                 } else if (!playerSender.isOp() && target != playerSender) {
                     playerSender.sendMessage("You cannot put a rank on this player.");
                     return true;
-                } else if (target == null) {
-                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Request Player is not online.");
-                    return true;
                 } else if (args.length == 1) {
                     if (args[0].equalsIgnoreCase("Owner")) {
                         playerSender.setDisplayName(ownerName + Name);
@@ -58,6 +55,9 @@ public class EnderRank implements CommandExecutor {
                         sender.sendMessage("Pleas enter either " + ChatColor.YELLOW + "OWNER " + ChatColor.DARK_BLUE + "CO §7MEMBER");
                         return true;
                     }
+                } else if (target == null) {
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Request Player is not online.");
+                    return true;
                 } else if (args[1].equalsIgnoreCase("Owner")) {
                     target.setDisplayName(ownerName + Name);
                     playerSender.setPlayerListName(ownerName + realName);
