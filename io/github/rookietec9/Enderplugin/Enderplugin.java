@@ -17,13 +17,23 @@ public final class EnderPlugin extends JavaPlugin {
     }
 
     public void onEnable() {
-        this.getLogger().info("EnderPlugin by TEC9 has been successfully launched. :D");
+        this.registerCommands();
+        this.RegisterEvents();
+        this.registerEntities();
+        if (!(new File(this.getDataFolder(), "config.yml")).exists()) {
+            this.saveDefaultConfig();
+        }
+
+    }
+
+    public void registerEntities() {
+        this.getCommand("EnderRank").setExecutor(new EnderRank(this));
+    }
+
+    public void registerCommands() {
         this.getCommand("EnderSchedule").setExecutor(new EnderSchedule(this));
-        this.getLogger().info("EnderSchedule activated");
         this.getCommand("EnderKill").setExecutor(new EnderKill(this));
-        this.getLogger().info("EnderKill activated");
         this.getCommand("EnderHeal").setExecutor(new EnderHeal(this));
-        this.getLogger().info("Enderheal activated");
         this.getCommand("EnderHug").setExecutor(new EnderHug(this));
         this.getCommand("EnderYT").setExecutor(new EnderYT(this));
         this.getCommand("EnderFinish").setExecutor(new EnderFinish(this));
@@ -39,18 +49,7 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("EnderRename").setExecutor(new EnderRename(this));
         this.getCommand("EnderESG").setExecutor(new EnderESG());
         this.getCommand("EnderFake").setExecutor(new EnderFake(this));
-        this.getLogger().info("EnderRank?");
         this.getCommand("EnderRank").setExecutor(new EnderRank(this));
-        this.getLogger().info("EnderRank.");
-        this.RegisterEvents();
-        registerEntities();
-        if (!(new File(this.getDataFolder(), "config.yml")).exists()) {
-            this.saveDefaultConfig();
-        }
-
-    }
-
-    public static void registerEntities() {
     }
 
     public void RegisterEvents() {
