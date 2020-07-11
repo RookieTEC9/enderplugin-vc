@@ -14,6 +14,7 @@ import io.github.rookietec9.EnderPlugin.commands.player.damagable.EnderKill;
 import io.github.rookietec9.EnderPlugin.commands.player.item.EnderCraft;
 import io.github.rookietec9.EnderPlugin.commands.player.item.EnderEnchant;
 import io.github.rookietec9.EnderPlugin.commands.player.item.EnderItem;
+import io.github.rookietec9.EnderPlugin.commands.player.item.EnderOld;
 import io.github.rookietec9.EnderPlugin.commands.player.item.EnderRename;
 import io.github.rookietec9.EnderPlugin.commands.player.menu.EnderESG;
 import io.github.rookietec9.EnderPlugin.commands.player.menu.EnderTelly;
@@ -94,6 +95,7 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("EnderRank").setExecutor(new EnderRank(this));
         this.getCommand("EnderColors").setExecutor(new EnderColors(this));
         this.getCommand("EnderSave").setExecutor(new EnderSave(this));
+        this.getCommand("EnderOld").setExecutor(new EnderOld(this));
     }
 
     public void RegisterEvents() {

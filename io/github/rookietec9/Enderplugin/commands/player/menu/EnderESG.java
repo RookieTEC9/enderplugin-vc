@@ -24,7 +24,7 @@ public class EnderESG implements CommandExecutor {
             Inventory inv = Bukkit.createInventory(null, 45, "Choose Your Kit");
             HashMap<Player, Double> hm = new HashMap();
             hm.put(Player, Double.valueOf(args[0]));
-            ItemStack HorseTamer = new ItemStack(383, 1, (short)100);
+            ItemStack HorseTamer = new ItemStack(Material.MONSTER_EGG, 1, (short)100);
             ItemMeta HorseMeta = HorseTamer.getItemMeta();
             HorseMeta.setDisplayName(ChatColor.GOLD + "HorseTamer " + String.valueOf(hm.get(Player)).substring(0, String.valueOf(hm.get(Player)).length() - 2));
             ArrayList<String> HorseLore = new ArrayList();
