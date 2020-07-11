@@ -1,6 +1,7 @@
 package io.github.rookietec9.EnderPlugin.commands.player.chat;
 
 import io.github.rookietec9.EnderPlugin.EnderPlugin;
+import java.util.ArrayList;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,6 +18,7 @@ public class EnderRank implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = (Player)sender;
         String string = player.getName();
+        String customName = player.getDisplayName();
         if (command.getName().equalsIgnoreCase("EnderRank")) {
         }
 
@@ -30,18 +32,34 @@ public class EnderRank implements CommandExecutor {
             if (!args[0].equalsIgnoreCase("Owner") && !args[0].equalsIgnoreCase("CO") && !args[0].equalsIgnoreCase("MEMBER")) {
                 player.sendMessage("§4Error: §cTry OWNER CO or MEMBER");
             } else if (args[0].equalsIgnoreCase("Owner") || args[0].equalsIgnoreCase("CO") || args[0].equalsIgnoreCase("MEMBER")) {
+                ArrayList Members;
                 if (args[0].equalsIgnoreCase("OWNER")) {
                     player.setPlayerListName("§f[§e§lOWNER§r] " + string);
+                    Members = new ArrayList();
+                    Members.add(String.valueOf(sender));
+                    this.plugin.getConfig().set("Owner", Members);
+                    player.setCustomName("§§f[§e§lOWNER§r] " + customName);
+                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Registered Rank.");
                     return true;
                 }
 
                 if (args[0].equalsIgnoreCase("CO")) {
                     player.setPlayerListName("§f[§1§lCO§r] " + string);
+                    Members = new ArrayList();
+                    Members.add(String.valueOf(sender));
+                    this.plugin.getConfig().set("Co", Members);
+                    player.setCustomName("§f[§1§lCO§r] " + customName);
+                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Registered Rank.");
                     return true;
                 }
 
                 if (args[0].equalsIgnoreCase("MEMBER")) {
                     player.setPlayerListName("§f[§7§lMEMBER§r] " + string);
+                    Members = new ArrayList();
+                    Members.add(String.valueOf(sender));
+                    this.plugin.getConfig().set("Members", Members);
+                    player.setCustomName("§f[§7§lMEMBER§r] " + customName);
+                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Registered Rank.");
                     return true;
                 }
 

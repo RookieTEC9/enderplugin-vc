@@ -8,7 +8,6 @@ import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
@@ -22,7 +21,7 @@ public class EnderESG implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("enderESG")) {
             Player Player = (Player)sender;
-            Inventory inv = Bukkit.createInventory((InventoryHolder)null, 45, "Choose Your Kit");
+            Inventory inv = Bukkit.createInventory(null, 45, "Choose Your Kit");
             HashMap<Player, Double> hm = new HashMap();
             hm.put(Player, Double.valueOf(args[0]));
             ItemStack HorseTamer = new ItemStack(Material.MONSTER_EGG, 1, (short)100);
@@ -69,10 +68,9 @@ public class EnderESG implements CommandExecutor {
             EnderLore.add(ChatColor.GRAY + "So long.");
             ItemStack Armorer = new ItemStack(Material.DIAMOND_CHESTPLATE, 1);
             ItemMeta ArmorerMeta = Armorer.getItemMeta();
-            ArmorerMeta.addEnchant(Enchantment.DURABILITY, 1, false);
             ArmorerMeta.setDisplayName(ChatColor.DARK_PURPLE + "Armorer " + String.valueOf(hm.get(Player)).substring(0, String.valueOf(hm.get(Player)).length() - 2));
             ArrayList<String> ArmorerLore = new ArrayList();
-            ArmorerLore.add(ChatColor.GRAY + "Better than a Tank!.");
+            ArmorerLore.add(ChatColor.GRAY + "Better than a Tank!");
             ItemStack Ninja = new ItemStack(Material.IRON_SWORD, 1);
             ItemMeta NinjaMeta = Ninja.getItemMeta();
             NinjaMeta.setDisplayName(ChatColor.WHITE + "Ninja " + String.valueOf(hm.get(Player)).substring(0, String.valueOf(hm.get(Player)).length() - 2));

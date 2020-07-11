@@ -1,5 +1,6 @@
-package io.github.rookietec9.EnderPlugin;
+package io.github.rookietec9.EnderPlugin.commands.player.damagable;
 
+import io.github.rookietec9.EnderPlugin.EnderPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -27,7 +28,7 @@ public class EnderFinish implements CommandExecutor {
                 target.setHealth(1.0D);
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.AQUA + args[0] + " " + "was successfully injured. :D");
                 if (target == sender) {
-                    Bukkit.broadcastMessage(this.plugin.getConfig().getString("Plug Message") + ChatColor.DARK_BLUE + "Some loser attempted injury.");
+                    Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.DARK_BLUE + "Some loser attempted injury.");
                 }
 
                 return true;
