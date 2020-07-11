@@ -39,7 +39,9 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("EnderRename").setExecutor(new EnderRename(this));
         this.getCommand("EnderESG").setExecutor(new EnderESG());
         this.getCommand("EnderFake").setExecutor(new EnderFake(this));
+        this.getLogger().info("EnderRank?");
         this.getCommand("EnderRank").setExecutor(new EnderRank(this));
+        this.getLogger().info("EnderRank.");
         this.RegisterEvents();
         registerEntities();
         if (!(new File(this.getDataFolder(), "config.yml")).exists()) {
