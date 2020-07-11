@@ -25,7 +25,7 @@ public class EnderRank implements CommandExecutor {
             Bukkit.broadcastMessage("EH");
             Player player = (Player)sender;
             String string = player.getName();
-            player.setDisplayName("Testing" + string);
+            player.setPlayerListName("Testing" + string);
             return true;
         }
     }
