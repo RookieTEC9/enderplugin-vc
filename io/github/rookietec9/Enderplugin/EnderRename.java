@@ -38,7 +38,7 @@ public class EnderRename implements CommandExecutor {
             }
 
             ItemMeta CurrentMeta = Current.getItemMeta();
-            CurrentMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', Name));
+            CurrentMeta.setDisplayName(ChatColor.WHITE + ChatColor.translateAlternateColorCodes('&', Name));
             Current.setItemMeta(CurrentMeta);
             sender.sendMessage("Renamed Item.");
         }
