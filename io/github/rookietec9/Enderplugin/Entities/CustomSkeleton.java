@@ -15,11 +15,11 @@ import net.minecraft.server.v1_9_R2.PathfinderGoalMoveTowardsRestriction;
 import net.minecraft.server.v1_9_R2.PathfinderGoalNearestAttackableTarget;
 import net.minecraft.server.v1_9_R2.PathfinderGoalRandomLookaround;
 import net.minecraft.server.v1_9_R2.PathfinderGoalRandomStroll;
-import net.minecraft.server.v1_9_R2.World;
+import org.bukkit.World;
 
 public class CustomSkeleton extends EntitySkeleton {
     public CustomSkeleton(World world) {
-        super(world);
+        super((net.minecraft.server.v1_9_R2.World)world);
         List goalB = (List)getPrivateField("b", PathfinderGoalSelector.class, this.goalSelector);
         goalB.clear();
         List goalC = (List)getPrivateField("c", PathfinderGoalSelector.class, this.goalSelector);
