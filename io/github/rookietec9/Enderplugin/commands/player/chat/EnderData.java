@@ -15,7 +15,7 @@ public class EnderData implements CommandExecutor {
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message") + args[1]) + ChatColor.DARK_RED + "One person at a time.");
                 return true;
             } else if (target == null) {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message") + args[1]) + ChatColor.DARK_RED + args[0] + EnderPlugin.EnderOffline);
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message") + args[1]) + ChatColor.DARK_RED + args[0] + "Player is not online.");
                 return true;
             } else {
                 String WalkSpeed = String.valueOf(target.getWalkSpeed());
