@@ -1,5 +1,6 @@
-package io.github.rookietec9.EnderPlugin;
+package io.github.rookietec9.EnderPlugin.commands.player.damagable;
 
+import io.github.rookietec9.EnderPlugin.EnderPlugin;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -14,11 +15,15 @@ public class EnderHeal implements CommandExecutor {
     }
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (!(sender instanceof Player)) {
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("NotPlayer")));
+        }
+
         Player player = (Player)sender;
         if (command.getName().equalsIgnoreCase("enderHeal")) {
             if (args.length == 0) {
-                player.setHealth(20.0D);
-                player.sendMessage("Healed");
+                player.setHealth(player.getMaxHealth());
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Healed");
                 return true;
             }
 
