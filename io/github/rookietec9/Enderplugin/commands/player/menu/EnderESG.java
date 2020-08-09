@@ -13,6 +13,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.material.MonsterEggs;
 
 public class EnderESG implements CommandExecutor {
     public EnderESG() {
@@ -21,10 +22,10 @@ public class EnderESG implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("enderESG")) {
             Player Player = (Player)sender;
-            Inventory inv = Bukkit.createInventory(null, 45, "Choose Your Kit");
+            Inventory inv = Bukkit.createInventory((InventoryHolder)null, 45, "Choose Your Kit");
             HashMap<Player, Double> hm = new HashMap();
             hm.put(Player, Double.valueOf(args[0]));
-            ItemStack HorseTamer = new ItemStack(Material.MONSTER_EGG, 1, (short)100);
+            ItemStack HorseTamer = (new MonsterEggs(100)).toItemStack();
             ItemMeta HorseMeta = HorseTamer.getItemMeta();
             HorseMeta.setDisplayName(ChatColor.GOLD + "HorseTamer " + String.valueOf(hm.get(Player)).substring(0, String.valueOf(hm.get(Player)).length() - 2));
             ArrayList<String> HorseLore = new ArrayList();
@@ -76,7 +77,7 @@ public class EnderESG implements CommandExecutor {
             NinjaMeta.setDisplayName(ChatColor.WHITE + "Ninja " + String.valueOf(hm.get(Player)).substring(0, String.valueOf(hm.get(Player)).length() - 2));
             ArrayList<String> NinjaLore = new ArrayList();
             NinjaLore.add(ChatColor.GRAY + "Quick but silent. Unless in a Skype chat.");
-            ItemStack Lava = new ItemStack(Material.MONSTER_EGG, 1);
+            ItemStack Lava = (new MonsterEggs(62)).toItemStack();
             ItemMeta LavaMeta = Lava.getItemMeta();
             LavaMeta.setDisplayName(ChatColor.DARK_RED + "Fury Slime " + String.valueOf(hm.get(Player)).substring(0, String.valueOf(hm.get(Player)).length() - 2));
             ArrayList<String> LavaLore = new ArrayList();
@@ -103,17 +104,17 @@ public class EnderESG implements CommandExecutor {
             Ninja.setItemMeta(NinjaMeta);
             LavaMeta.setLore(LavaLore);
             Lava.setItemMeta(LavaMeta);
-            inv.addItem(new ItemStack[]{Rabbit});
-            inv.addItem(new ItemStack[]{Archer});
-            inv.addItem(new ItemStack[]{Snow});
-            inv.addItem(new ItemStack[]{Assassin});
-            inv.addItem(new ItemStack[]{Enderman});
-            inv.addItem(new ItemStack[]{Witch});
-            inv.addItem(new ItemStack[]{HorseTamer});
-            inv.addItem(new ItemStack[]{Knight});
-            inv.addItem(new ItemStack[]{Armorer});
-            inv.addItem(new ItemStack[]{Ninja});
-            inv.addItem(new ItemStack[]{Lava});
+            inv.addItem(Rabbit);
+            inv.addItem(Archer);
+            inv.addItem(Snow);
+            inv.addItem(Assassin);
+            inv.addItem(Enderman);
+            inv.addItem(Witch);
+            inv.addItem(HorseTamer);
+            inv.addItem(Knight);
+            inv.addItem(Armorer);
+            inv.addItem(Ninja);
+            inv.addItem(Lava);
             Player.openInventory(inv);
             return true;
         } else {
