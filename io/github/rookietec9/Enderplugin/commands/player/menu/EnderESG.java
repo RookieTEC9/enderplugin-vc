@@ -1,6 +1,7 @@
 package io.github.rookietec9.EnderPlugin.commands.player.menu;
 
 import io.github.rookietec9.EnderPlugin.EnderPlugin;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.bukkit.Bukkit;
@@ -23,6 +24,14 @@ public class EnderESG implements CommandExecutor {
         this.plugin = plugin;
     }
 
+    private Class<?> getNmsClass(String className) throws ClassNotFoundException {
+        return Class.forName("net.minecraft.server." + this.plugin.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3] + "." + className);
+    }
+
+    private Class<?> getCraftbukkitClass(String className) throws ClassNotFoundException {
+        return Class.forName("org.bukkit.craftbukkit." + this.plugin.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3] + "." + className);
+    }
+
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("enderESG")) {
             if (!(sender instanceof Player)) {
@@ -33,7 +42,7 @@ public class EnderESG implements CommandExecutor {
                 Inventory inv = Bukkit.createInventory(null, 45, "Choose Your Kit");
                 HashMap<Player, Double> hm = new HashMap();
                 hm.put(Player, Double.valueOf(args[0]));
-                ItemStack HorseTamer = (new MonsterEggs(383, (byte)100)).toItemStack();
+                ItemStack HorseTamer = new ItemStack(Material.MONSTER_EGG, 1);
                 HorseTamer.setAmount(1);
                 ItemMeta HorseMeta = HorseTamer.getItemMeta();
                 HorseMeta.setDisplayName(ChatColor.GOLD + "HorseTamer " + String.valueOf(hm.get(Player)).substring(0, String.valueOf(hm.get(Player)).length() - 2));
@@ -41,6 +50,42 @@ public class EnderESG implements CommandExecutor {
                 HorseLore.add(ChatColor.GRAY + "One who rides the horse survives.");
                 HorseMeta.setLore(HorseLore);
                 HorseTamer.setItemMeta(HorseMeta);
+                Object nmsStack = null;
+
+                try {
+                    nmsStack = this.getCraftbukkitClass("inventory.CraftItemStack").getMethod("asNMSCopy", ItemStack.class).invoke((Object)null, HorseTamer);
+                } catch (IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException | ClassNotFoundException | IllegalAccessException var48) {
+                    var48.printStackTrace();
+                }
+
+                Object tag = null;
+
+                try {
+                    tag = (Boolean)nmsStack.getClass().getMethod("hasTag").invoke(nmsStack) ? nmsStack.getClass().getMethod("getTag").invoke(nmsStack) : this.getNmsClass("NBTTagCompound").newInstance();
+                } catch (IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException | InstantiationException | ClassNotFoundException | IllegalAccessException var47) {
+                    var47.printStackTrace();
+                }
+
+                Object nested = null;
+
+                try {
+                    nested = this.getNmsClass("NBTTagCompound").newInstance();
+                } catch (IllegalAccessException | ClassNotFoundException | InstantiationException var46) {
+                    var46.printStackTrace();
+                }
+
+                try {
+                    nested.getClass().getMethod("setString", String.class, String.class).invoke(nested, "id", "Creeper");
+                } catch (IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException | IllegalAccessException var45) {
+                    var45.printStackTrace();
+                }
+
+                try {
+                    nmsStack.getClass().getMethod("setTag", this.getNmsClass("NBTTagCompound")).invoke(nmsStack, tag);
+                } catch (IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException | ClassNotFoundException | IllegalAccessException var44) {
+                    var44.printStackTrace();
+                }
+
                 ItemStack Knight = new ItemStack(Material.SHIELD);
                 ItemMeta KnightMeta = Knight.getItemMeta();
                 KnightMeta.setDisplayName("§9Knight " + String.valueOf(hm.get(Player)).substring(0, String.valueOf(hm.get(Player)).length() - 2));

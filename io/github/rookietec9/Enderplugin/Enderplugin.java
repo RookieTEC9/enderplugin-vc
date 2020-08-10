@@ -96,7 +96,7 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("EnderSave").setExecutor(new EnderSave(this));
         this.getCommand("EnderOld").setExecutor(new EnderOld(this));
         this.getCommand("EnderFly").setExecutor(new EnderFly(this));
-        this.getCommand("EnderTwek").setExecutor(new EnderTwerk());
+        this.getCommand("EnderTwerk").setExecutor(new EnderTwerk(this));
     }
 
     public void RegisterEvents() {
