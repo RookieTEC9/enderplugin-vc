@@ -18,7 +18,7 @@ public class EnderVersion implements CommandExecutor {
         }
 
         sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.BOLD + "EnderPlugin");
-        sender.sendMessage(ChatColor.BLUE + "Version Cycle: " + ChatColor.BOLD + "PRE");
+        sender.sendMessage(ChatColor.BLUE + "Version Cycle: " + ChatColor.BOLD + "CLASSIC");
         sender.sendMessage(ChatColor.DARK_BLUE + "Version:" + ChatColor.BOLD + this.plugin.getConfig().getString("Version"));
         sender.sendMessage(ChatColor.DARK_AQUA + "Compiled: " + ChatColor.BOLD + " July");
         return true;

@@ -36,30 +36,36 @@ public class EnderRank implements CommandExecutor {
                 if (args[0].equalsIgnoreCase("OWNER")) {
                     player.setPlayerListName("§f[§e§lOWNER§r] " + string);
                     Members = new ArrayList();
-                    Members.add(String.valueOf(sender));
+                    Members.add(String.valueOf(sender.getName()));
                     this.plugin.getConfig().set("Owner", Members);
                     player.setCustomName("§§f[§e§lOWNER§r] " + customName);
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Registered Rank.");
+                    this.plugin.saveConfig();
+                    this.plugin.reloadConfig();
                     return true;
                 }
 
                 if (args[0].equalsIgnoreCase("CO")) {
                     player.setPlayerListName("§f[§1§lCO§r] " + string);
                     Members = new ArrayList();
-                    Members.add(String.valueOf(sender));
+                    Members.add(String.valueOf(sender.getName()));
                     this.plugin.getConfig().set("Co", Members);
                     player.setCustomName("§f[§1§lCO§r] " + customName);
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Registered Rank.");
+                    this.plugin.saveConfig();
+                    this.plugin.reloadConfig();
                     return true;
                 }
 
                 if (args[0].equalsIgnoreCase("MEMBER")) {
                     player.setPlayerListName("§f[§7§lMEMBER§r] " + string);
                     Members = new ArrayList();
-                    Members.add(String.valueOf(sender));
+                    Members.add(String.valueOf(sender.getName()));
                     this.plugin.getConfig().set("Members", Members);
                     player.setCustomName("§f[§7§lMEMBER§r] " + customName);
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Registered Rank.");
+                    this.plugin.saveConfig();
+                    this.plugin.reloadConfig();
                     return true;
                 }
 

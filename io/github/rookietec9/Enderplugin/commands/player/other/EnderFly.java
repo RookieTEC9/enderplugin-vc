@@ -36,20 +36,24 @@ public class EnderFly implements CommandExecutor {
             if (args.length == 0) {
                 if (player.getAllowFlight()) {
                     player.setAllowFlight(false);
+                    return true;
                 }
 
                 if (!player.getAllowFlight()) {
                     player.setAllowFlight(true);
+                    return true;
                 }
             }
 
             if (args.length == 1) {
                 if (args[1].equalsIgnoreCase("ON")) {
                     player.setAllowFlight(true);
+                    return true;
                 }
 
                 if (args[1].equalsIgnoreCase("OFF")) {
                     player.setAllowFlight(false);
+                    return true;
                 }
 
                 return true;
@@ -64,10 +68,12 @@ public class EnderFly implements CommandExecutor {
 
                 if (args[2] == "on") {
                     player.setAllowFlight(true);
+                    return true;
                 }
 
                 if (args[2] == "off") {
                     player.setAllowFlight(false);
+                    return true;
                 }
 
                 return true;

@@ -21,11 +21,11 @@ public class EnderTwerk implements CommandExecutor {
 
             Player player = (Player)sender;
             Double O = 0.0D;
-            if (args[0] == "True") {
+            if (args[0].equalsIgnoreCase("True")) {
                 O = 1.0D;
             }
 
-            if (args[0] == "False") {
+            if (args[0].equalsIgnoreCase("False")) {
                 O = 0.0D;
             }
 

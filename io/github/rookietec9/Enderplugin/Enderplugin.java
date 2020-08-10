@@ -18,7 +18,6 @@ import io.github.rookietec9.EnderPlugin.commands.player.item.EnderRename;
 import io.github.rookietec9.EnderPlugin.commands.player.menu.EnderESG;
 import io.github.rookietec9.EnderPlugin.commands.player.menu.EnderTelly;
 import io.github.rookietec9.EnderPlugin.commands.player.other.EnderFly;
-import io.github.rookietec9.EnderPlugin.commands.player.other.EnderGM;
 import io.github.rookietec9.EnderPlugin.commands.player.other.EnderTP;
 import io.github.rookietec9.EnderPlugin.commands.player.other.EnderTwerk;
 import io.github.rookietec9.EnderPlugin.commands.text.EnderColors;
@@ -31,7 +30,6 @@ import io.github.rookietec9.EnderPlugin.event.player.PlayerChat;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerDamage;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerDeath;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerJoin;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -69,7 +67,6 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("EnderFly").setExecutor(new EnderFly(this));
         this.getCommand("EnderTwerk").setExecutor(new EnderTwerk(this));
         this.getCommand("EnderWorld").setExecutor(new EnderWorld(this));
-        this.getCommand("EnderGM").setExecutor((CommandExecutor)(new EnderGM()));
     }
 
     public void RegisterEvents() {
