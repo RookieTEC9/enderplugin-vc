@@ -14,7 +14,7 @@ public class EnderTwerk implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("enderTwerk")) {
-            if (sender instanceof Player) {
+            if (!(sender instanceof Player)) {
                 sender.sendMessage("Only Players can have fun!");
                 return true;
             }

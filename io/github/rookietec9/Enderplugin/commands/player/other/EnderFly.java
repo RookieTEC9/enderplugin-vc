@@ -30,6 +30,7 @@ public class EnderFly implements CommandExecutor {
             Player player = (Player)sender;
             if (args.length >= 2) {
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.RED + "Syntax: ");
+                return true;
             }
 
             if (args.length == 0) {
@@ -43,11 +44,11 @@ public class EnderFly implements CommandExecutor {
             }
 
             if (args.length == 1) {
-                if (args[1] == "on") {
+                if (args[1].equalsIgnoreCase("ON")) {
                     player.setAllowFlight(true);
                 }
 
-                if (args[1] == "off") {
+                if (args[1].equalsIgnoreCase("OFF")) {
                     player.setAllowFlight(false);
                 }
 
