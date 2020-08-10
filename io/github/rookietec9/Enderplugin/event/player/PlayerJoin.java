@@ -17,17 +17,18 @@ public class PlayerJoin implements Listener {
     @EventHandler
     public void PlayerJoinEvent(PlayerJoinEvent Event) {
         Player Player = Event.getPlayer();
-        Player.sendTitle(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Welcome Title")), ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Welcome Subtitle")));
-        Player Mem = (Player)this.plugin.getConfig().getStringList("Members");
-        Player Co = (Player)this.plugin.getConfig().getStringList("Co");
-        Player Owner = (Player)this.plugin.getConfig().getStringList("Owner");
         String Name = Player.getName();
         String customName = Player.getDisplayName();
-        Mem.setPlayerListName("§f[§7§lMEMBER§r] " + Name);
-        Mem.setCustomName("§f[§7§lMEMBER§r] " + customName);
-        Co.setPlayerListName("§f[§1§lCO§r] " + Name);
-        Co.setCustomName("§f[§1§lCO§r] " + customName);
-        Owner.setPlayerListName("§f[§e§lOWNER§r] " + Name);
-        Owner.setCustomName("§f[§e§lOWNER§r]" + customName);
+        Player.sendTitle(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Welcome Title")), ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Welcome Subtitle")));
+        if (this.plugin.getConfig().get(Event.getPlayer().getName(), "Owner") != null) {
+            Event.getPlayer().setPlayerListName("§f[§e§lOWNER§r] " + Name);
+            Event.getPlayer().setCustomName("§f[§e§lOWNER§r]" + customName);
+        } else if (this.plugin.getConfig().get(Event.getPlayer().getName(), "Co") != null) {
+            Event.getPlayer().setPlayerListName("§f[§1§lCO§r] " + Name);
+            Event.getPlayer().setCustomName("§f[§1§lCO§r] " + customName);
+        } else if (this.plugin.getConfig().get(Event.getPlayer().getName(), "Members") != null) {
+            Event.getPlayer().setPlayerListName("§f[§7§lMEMBER§r] " + Name);
+            Event.getPlayer().setCustomName("§f[§7§lMEMBER§r] " + customName);
+        }
     }
 }
