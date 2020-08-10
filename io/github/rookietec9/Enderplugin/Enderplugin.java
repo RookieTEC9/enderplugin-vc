@@ -82,4 +82,4 @@ public final class EnderPlugin extends JavaPlugin {
     public void onDisable() {
         this.getLogger().info("EnderPlugin by TEC9 has shut down.");
     }
-}
+} //plugin.yml edit
