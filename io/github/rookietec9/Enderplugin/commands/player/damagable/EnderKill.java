@@ -1,5 +1,6 @@
-package io.github.rookietec9.EnderPlugin;
+package io.github.rookietec9.EnderPlugin.commands.player.damagable;
 
+import io.github.rookietec9.EnderPlugin.EnderPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

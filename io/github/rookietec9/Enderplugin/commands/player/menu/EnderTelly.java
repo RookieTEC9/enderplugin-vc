@@ -1,4 +1,4 @@
-package io.github.rookietec9.EnderPlugin;
+package io.github.rookietec9.EnderPlugin.commands.player.menu;
 
 import java.util.ArrayList;
 import org.bukkit.Bukkit;

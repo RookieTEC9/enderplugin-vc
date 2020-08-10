@@ -1,3 +1,12 @@
+package io.github.rookietec9.EnderPlugin.commands.player.chat;
+
+import io.github.rookietec9.EnderPlugin.EnderPlugin;
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
 public class EnderData implements CommandExecutor {
     private final EnderPlugin plugin;
 
@@ -29,7 +38,7 @@ public class EnderData implements CommandExecutor {
                 String Health = String.valueOf(target.getHealth());
                 String MaxHealth = String.valueOf(target.getMaxHealth());
                 String World = GetWorld.substring(16, GetWorld.length() - 1);
-                sender.sendMessage(String.valueOf(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message"))) + "Creating report log for " + args[0]);
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Creating report log for " + args[0]);
                 sender.sendMessage("Walk Speed: " + WalkSpeed);
                 sender.sendMessage("Fly Speed: " + FlySpeed);
                 sender.sendMessage("Health: " + Health + " / " + MaxHealth);

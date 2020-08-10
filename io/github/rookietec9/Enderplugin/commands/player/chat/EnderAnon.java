@@ -1,5 +1,6 @@
-package io.github.rookietec9.EnderPlugin;
+package io.github.rookietec9.EnderPlugin.commands.player.chat;
 
+import io.github.rookietec9.EnderPlugin.EnderPlugin;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

@@ -29,7 +29,7 @@ public class EnderFly implements CommandExecutor {
 
             Player player = (Player)sender;
             if (args.length >= 2) {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.RED + "Syntax: ");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + ChatColor.DARK_RED + "Syntax: " + ChatColor.RED + "/enderFly [Fly] ");
                 return true;
             }
 

@@ -3,7 +3,6 @@ package io.github.rookietec9.EnderPlugin.commands.player.item;
 import io.github.rookietec9.EnderPlugin.EnderPlugin;
 import net.md_5.bungee.api.ChatColor;
 import org.apache.commons.lang.StringUtils;
-import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -33,7 +32,7 @@ public class EnderRename implements CommandExecutor {
             String Name = StringUtils.join(args, ' ', 0, args.length);
             Player player = (Player)sender;
             ItemStack Current = player.getItemInHand();
-            if (Current.getType() == Material.AIR) {
+            if (Current.getType() == null) {
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Please hold something");
                 return true;
             }
@@ -44,6 +43,6 @@ public class EnderRename implements CommandExecutor {
             sender.sendMessage("Renamed Item.");
         }
 
-        return false;
+        return true;
     }
 }
