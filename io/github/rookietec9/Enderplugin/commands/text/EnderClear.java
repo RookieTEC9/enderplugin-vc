@@ -1,7 +1,7 @@
 package io.github.rookietec9.EnderPlugin.commands.text;
 
 import io.github.rookietec9.EnderPlugin.EnderPlugin;
-import io.github.rookietec9.EnderPlugin.API.EnderCommand;
+import io.github.rookietec9.EnderPlugin.API.EnderCommand.Static;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -149,7 +149,7 @@ public class EnderClear implements CommandExecutor {
             Bukkit.broadcastMessage("");
             Bukkit.broadcastMessage("");
             Bukkit.broadcastMessage("");
-            Bukkit.broadcastMessage(EnderCommand.PlugMsg + "Cleared Chat.");
+            Bukkit.broadcastMessage(Static.PlugMsg + "Cleared Chat.");
         }
 
         return false;
