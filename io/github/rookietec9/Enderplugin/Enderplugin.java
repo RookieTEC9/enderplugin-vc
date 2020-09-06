@@ -1,5 +1,6 @@
 package io.github.rookietec9.EnderPlugin;
 
+import io.github.rookietec9.EnderPlugin.API.EnderStrings;
 import io.github.rookietec9.EnderPlugin.ESG.ESGLevel;
 import io.github.rookietec9.EnderPlugin.commands.config.EnderReload;
 import io.github.rookietec9.EnderPlugin.commands.config.EnderSave;
@@ -58,6 +59,7 @@ public final class EnderPlugin extends JavaPlugin {
     }
 
     public void registerCommands() {
+        this.getLogger().info(EnderStrings.Error);
         this.getCommand("EnderSchedule").setExecutor(new EnderSchedule(this));
         this.getCommand("EnderKill").setExecutor(new EnderKill(this));
         this.getCommand("EnderHeal").setExecutor(new EnderHeal(this));
