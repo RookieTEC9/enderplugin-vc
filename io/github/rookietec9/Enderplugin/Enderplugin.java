@@ -37,6 +37,7 @@ import io.github.rookietec9.EnderPlugin.event.player.PlayerDamage;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerDeath;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerInteract;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerJoin;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -46,6 +47,8 @@ public final class EnderPlugin extends JavaPlugin {
 
     public void onEnable() {
         this.registerCommands();
+        this.getLogger().info("Registering void : registerEvents");
+        this.getLogger().info(ChatColor.DARK_RED + "If you see this message, this means that events are registering. However, if you see no further messages, this" + "means that the events are not working. Please report this to the author.");
         this.registerEvents();
     }
 
@@ -77,19 +80,27 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("ESGLevel").setExecutor(new ESGLevel(this));
         this.getCommand("EnderCount").setExecutor(new EnderCount());
         this.getCommand("EnderList").setExecutor(new EnderList(this));
-        this.getCommand("EnderClear").setExecutor(new EnderClear(this));
+        this.getCommand("EnderClear").setExecutor(new EnderClear());
         this.getCommand("EnderGm").setExecutor(new EnderGM(this));
     }
 
     public void registerEvents() {
         PluginManager pm = this.getServer().getPluginManager();
+        this.getLogger().info("Registering Event : PlayerChat.class");
         pm.registerEvents(new PlayerChat(), this);
+        this.getLogger().info("Registering Event : PlayerDeath.class");
         pm.registerEvents(new PlayerDeath(), this);
+        this.getLogger().info("Registering Event : PlayerDamage.class");
         pm.registerEvents(new PlayerDamage(), this);
+        this.getLogger().info("Registering Event : PlayerJoin.class");
         pm.registerEvents(new PlayerJoin(this), this);
+        this.getLogger().info("Registering Event : InventoryClick.class");
         pm.registerEvents(new InventoryClick(), this);
+        this.getLogger().info("Registering Event : esgClick.class");
         pm.registerEvents(new esgClick(), this);
+        this.getLogger().info("Registering Event : PlayerInteract.class");
         pm.registerEvents(new PlayerInteract(), this);
+        this.getLogger().info("Registering Event : AnvilRename.class");
         pm.registerEvents(new AnvilRename(), this);
     }
 

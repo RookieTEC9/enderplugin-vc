@@ -1,18 +1,27 @@
 package io.github.rookietec9.EnderPlugin.commands.player.other;
 
 import io.github.rookietec9.EnderPlugin.EnderPlugin;
-import io.github.rookietec9.EnderPlugin.API.EnderCommand;
+import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class EnderGM implements EnderCommand, CommandExecutor {
-    private EnderPlugin plugin;
+public class EnderGM implements CommandExecutor {
+    private static EnderPlugin plugin;
+    public static String PlugMsg;
+    public static String Error;
+    public static String ConsoleNotAllowed;
+    public static String PlayerNotAllowed;
+    public static String BlockNotAllowed;
+    public static String OnlyUser;
+    public static String NoArgs;
+    public static String MuchArgs;
+    public static String NoPlayer;
 
     public EnderGM(EnderPlugin enderPlugin) {
-        this.plugin = enderPlugin;
+        plugin = enderPlugin;
     }
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -55,7 +64,7 @@ public class EnderGM implements EnderCommand, CommandExecutor {
             }
 
             if (args.length == 2) {
-                target = this.plugin.getServer().getPlayer(args[0]);
+                target = plugin.getServer().getPlayer(args[0]);
                 if (target == null) {
                     sender.sendMessage(NoPlayer);
                     return true;
@@ -95,5 +104,17 @@ public class EnderGM implements EnderCommand, CommandExecutor {
         }
 
         return true;
+    }
+
+    static {
+        PlugMsg = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Plug Message"));
+        Error = PlugMsg + "§4Error: §c";
+        ConsoleNotAllowed = PlugMsg + "Consoles cannot use this command.";
+        PlayerNotAllowed = PlugMsg + "Players cannot use this command.";
+        BlockNotAllowed = PlugMsg + "CommandBlocks cannot use this command";
+        OnlyUser = PlugMsg + "Only users can run this command.";
+        NoArgs = Error + "Not enough arguments.";
+        MuchArgs = Error + "Too many arguments.";
+        NoPlayer = Error + "The request player is offline";
     }
 }
