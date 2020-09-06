@@ -6,8 +6,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class PlayerChat implements Listener {
-    public PlayerChat() {
+public class EnderChatEggs implements Listener {
+    public EnderChatEggs() {
     }
 
     @EventHandler

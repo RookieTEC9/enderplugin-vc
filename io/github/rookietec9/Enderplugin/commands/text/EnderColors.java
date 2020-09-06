@@ -15,7 +15,7 @@ public class EnderColors implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("EnderColors")) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "§00 §11 §22 §33 §44 §55 §66 §77 §88 §99 §AA §BB §CC §DD §EE §FF §RR [RESET] §r§LBOLD §r§mm §r§nn §r§oo ");
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "§00 §11 §22 §33 §44 §55 §66 §77 §88 §99 §AA §BB §CC §DD §EE §FF §RR [RESET] §r§LBOLD§r §mm§r §nn§r §oo");
             return true;
         } else {
             return false;
