@@ -1,23 +1,14 @@
-package io.github.rookietec9.EnderPlugin.API;
-
-import io.github.rookietec9.EnderPlugin.EnderPlugin;
-import org.bukkit.ChatColor;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-
 public abstract class EnderCommand {
-    public static Exception notPlayer;
     protected static EnderPlugin plugin;
-    protected static String PlugMsg;
-    protected static String Error;
-    protected static String ConsoleNotAllowed;
-    protected static String PlayerNotAllowed;
-    protected static String BlockNotAllowed;
-    protected static String OnlyUser;
-    protected static String NoArgs;
-    protected static String MuchArgs;
-    protected static String NoPlayer;
+    public static String PlugMsg;
+    public static String Error;
+    public static String ConsoleNotAllowed;
+    public static String PlayerNotAllowed;
+    public static String BlockNotAllowed;
+    public static String OnlyUser;
+    public static String NoArgs;
+    public static String MuchArgs;
+    public static String NoPlayer;
 
     public EnderCommand() {
     }
@@ -27,12 +18,11 @@ public abstract class EnderCommand {
 
     public abstract boolean onCommand(CommandSender var1, Command var2, String[] var3);
 
-    protected Boolean isPlayer(CommandSender sender) throws Exception {
+    protected Boolean isPlayer(CommandSender sender) {
         if (!(sender instanceof Player)) {
-            throw notPlayer;
-        } else {
-            throw notPlayer;
         }
+
+        return null;
     }
 
     static {

@@ -1,5 +1,6 @@
 package io.github.rookietec9.EnderPlugin;
 
+import io.github.rookietec9.EnderPlugin.API.EnderCommand;
 import io.github.rookietec9.EnderPlugin.ESG.ESGLevel;
 import io.github.rookietec9.EnderPlugin.commands.config.EnderReload;
 import io.github.rookietec9.EnderPlugin.commands.config.EnderSave;
@@ -22,6 +23,7 @@ import io.github.rookietec9.EnderPlugin.commands.player.menu.EnderTelly;
 import io.github.rookietec9.EnderPlugin.commands.player.other.EnderFly;
 import io.github.rookietec9.EnderPlugin.commands.player.other.EnderTP;
 import io.github.rookietec9.EnderPlugin.commands.player.other.EnderTwerk;
+import io.github.rookietec9.EnderPlugin.commands.text.EnderClear;
 import io.github.rookietec9.EnderPlugin.commands.text.EnderColors;
 import io.github.rookietec9.EnderPlugin.commands.text.EnderList;
 import io.github.rookietec9.EnderPlugin.commands.text.EnderSchedule;
@@ -52,8 +54,12 @@ public final class EnderPlugin extends JavaPlugin {
     }
 
     public void onEnable() {
+        this.getLogger().info(EnderCommand.PlugMsg + "Loading EnderPlugin....");
+        this.getLogger().info(EnderCommand.PlugMsg + "Loading Commands....");
         this.registerCommands();
+        this.getLogger().info(EnderCommand.PlugMsg + "Loading Events....");
         this.registerEvents();
+        this.getLogger().info(EnderCommand.PlugMsg + "Done Loading EnderPlugin....");
     }
 
     public void registerCommands() {
@@ -84,6 +90,7 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("ESGLevel").setExecutor(new ESGLevel(this));
         this.getCommand("EnderCount").setExecutor(new EnderCount());
         this.getCommand("EnderList").setExecutor(new EnderList(this));
+        this.getCommand("EnderClear").setExecutor(new EnderClear(this));
     }
 
     public void registerEvents() {
