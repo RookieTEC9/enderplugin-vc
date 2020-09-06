@@ -47,6 +47,7 @@ public final class EnderPlugin extends JavaPlugin {
     public void onEnable() {
         this.registerCommands();
         this.registerEvents();
+        this.registerEvents();
     }
 
     public void registerCommands() {
