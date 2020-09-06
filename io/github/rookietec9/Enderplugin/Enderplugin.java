@@ -3,6 +3,7 @@ package io.github.rookietec9.EnderPlugin;
 import io.github.rookietec9.EnderPlugin.ESG.ESGLevel;
 import io.github.rookietec9.EnderPlugin.commands.config.EnderReload;
 import io.github.rookietec9.EnderPlugin.commands.config.EnderSave;
+import io.github.rookietec9.EnderPlugin.commands.multiworld.EnderWorldTP;
 import io.github.rookietec9.EnderPlugin.commands.player.VanillaMenu.EnderCraft;
 import io.github.rookietec9.EnderPlugin.commands.player.VanillaMenu.EnderEnchant;
 import io.github.rookietec9.EnderPlugin.commands.player.chat.EnderAnomCast;
@@ -56,7 +57,7 @@ public final class EnderPlugin extends JavaPlugin {
     public void registerCommands() {
         this.getCommand("EnderSave").setExecutor(new EnderSave(this));
         this.getCommand("EnderReload").setExecutor(new EnderReload(this));
-        this.getCommand("EnderWorldTP").setExecutor(new EnderTP(this));
+        this.getCommand("EnderWorldTP").setExecutor(new EnderWorldTP(this));
         this.getCommand("EnderAnomCast").setExecutor(new EnderAnomCast(this));
         this.getCommand("EnderAnon").setExecutor(new EnderAnon(this));
         this.getCommand("EnderCount").setExecutor(new EnderCount());
