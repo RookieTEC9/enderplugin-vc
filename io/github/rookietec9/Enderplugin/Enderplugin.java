@@ -44,7 +44,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class EnderPlugin extends JavaPlugin {
+public final class EnderPlugin extends JavaPlugin { //PLUGIN.YML UPDATE
     private FileConfiguration customConfig = null;
     private File customConfigFile = null;
 
