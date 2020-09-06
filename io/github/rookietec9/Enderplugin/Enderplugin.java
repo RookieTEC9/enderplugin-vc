@@ -32,19 +32,19 @@ import io.github.rookietec9.EnderPlugin.event.inventory.esgClick;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerChat;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerDamage;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerDeath;
+import io.github.rookietec9.EnderPlugin.event.player.PlayerInteract;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerJoin;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class EnderPlugin extends JavaPlugin { //PLUGIN.YML UPDATE
+public final class EnderPlugin extends JavaPlugin {
     private FileConfiguration customConfig = null;
     private File customConfigFile = null;
 
@@ -94,15 +94,16 @@ public final class EnderPlugin extends JavaPlugin { //PLUGIN.YML UPDATE
         pm.registerEvents(new PlayerJoin(this), this);
         pm.registerEvents(new InventoryClick(), this);
         pm.registerEvents(new esgClick(), this);
+        pm.registerEvents(new PlayerInteract(), this);
     }
 
-    public void reloadESGConfig() throws UnsupportedEncodingException {
+    public void reloadESGConfig() {
         if (this.customConfigFile == null) {
             this.customConfigFile = new File(this.getDataFolder(), "esgConfig.yml");
         }
 
         this.customConfig = YamlConfiguration.loadConfiguration(this.customConfigFile);
-        Reader defConfigStream = new InputStreamReader(this.getResource("esgConfig.yml"), "UTF8");
+        Reader defConfigStream = new InputStreamReader(this.getResource("esgConfig.yml"));
         if (defConfigStream != null) {
             YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
             this.customConfig.setDefaults(defConfig);
@@ -110,7 +111,7 @@ public final class EnderPlugin extends JavaPlugin { //PLUGIN.YML UPDATE
 
     }
 
-    public FileConfiguration getESGConfig() throws UnsupportedEncodingException {
+    public FileConfiguration getESGConfig() {
         if (this.customConfig == null) {
             this.reloadESGConfig();
         }
