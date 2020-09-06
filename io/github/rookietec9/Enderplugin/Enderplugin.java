@@ -57,7 +57,7 @@ public final class EnderPlugin extends JavaPlugin {
     public void registerCommands() {
         this.getCommand("EnderSave").setExecutor(new EnderSave(this));
         this.getCommand("EnderReload").setExecutor(new EnderReload(this));
-        this.getCommand("EnderWorldTP").setExecutor(new EnderWorldTP(this));
+        this.getCommand("EWTP").setExecutor(new EnderWorldTP(this));
         this.getCommand("EnderAnomCast").setExecutor(new EnderAnomCast(this));
         this.getCommand("EnderAnon").setExecutor(new EnderAnon(this));
         this.getCommand("EnderCount").setExecutor(new EnderCount());
