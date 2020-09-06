@@ -92,14 +92,14 @@ public class PickClass {
         LavaMeta.setLore(LavaLore);
         Lava.setItemMeta(LavaMeta);
         inv.setItem(0, Rabbit);
-        inv.setItem(2, Archer);
-        inv.setItem(4, Snow);
-        inv.setItem(6, Assassin);
-        inv.setItem(8, Enderman);
-        inv.setItem(10, Witch);
-        inv.setItem(12, HorseTamer);
-        inv.setItem(14, Armorer);
-        inv.setItem(16, Ninja);
-        inv.setItem(18, Lava);
+        inv.setItem(1, Archer);
+        inv.setItem(2, Snow);
+        inv.setItem(3, Assassin);
+        inv.setItem(4, Enderman);
+        inv.setItem(5, Witch);
+        inv.setItem(6, HorseTamer);
+        inv.setItem(7, Armorer);
+        inv.setItem(8, Ninja);
+        inv.setItem(9, Lava);
     }
 }

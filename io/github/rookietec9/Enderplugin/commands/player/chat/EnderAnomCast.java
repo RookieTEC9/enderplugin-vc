@@ -17,6 +17,13 @@ public class EnderAnomCast implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("enderAnomCast")) {
+            String PlugMsg = ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message"));
+            String Error = PlugMsg + "§4Error: §c";
+            String NoArgs = Error + "Not enough arguments.";
+            if (args.length == 0) {
+                sender.sendMessage(NoArgs);
+            }
+
             String Message = StringUtils.join(args, ' ', 0, args.length);
             Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', Message));
         }
