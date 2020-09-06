@@ -1,6 +1,5 @@
 package io.github.rookietec9.EnderPlugin;
 
-import io.github.rookietec9.EnderPlugin.API.EnderStrings;
 import io.github.rookietec9.EnderPlugin.ESG.ESGLevel;
 import io.github.rookietec9.EnderPlugin.commands.config.EnderReload;
 import io.github.rookietec9.EnderPlugin.commands.config.EnderSave;
@@ -21,6 +20,7 @@ import io.github.rookietec9.EnderPlugin.commands.player.item.EnderRename;
 import io.github.rookietec9.EnderPlugin.commands.player.menu.EnderESG;
 import io.github.rookietec9.EnderPlugin.commands.player.menu.EnderTelly;
 import io.github.rookietec9.EnderPlugin.commands.player.other.EnderFly;
+import io.github.rookietec9.EnderPlugin.commands.player.other.EnderGM;
 import io.github.rookietec9.EnderPlugin.commands.player.other.EnderTP;
 import io.github.rookietec9.EnderPlugin.commands.player.other.EnderTwerk;
 import io.github.rookietec9.EnderPlugin.commands.text.EnderClear;
@@ -29,6 +29,7 @@ import io.github.rookietec9.EnderPlugin.commands.text.EnderList;
 import io.github.rookietec9.EnderPlugin.commands.text.EnderSchedule;
 import io.github.rookietec9.EnderPlugin.commands.text.EnderVersion;
 import io.github.rookietec9.EnderPlugin.commands.text.EnderYT;
+import io.github.rookietec9.EnderPlugin.event.inventory.AnvilRename;
 import io.github.rookietec9.EnderPlugin.event.inventory.InventoryClick;
 import io.github.rookietec9.EnderPlugin.event.inventory.esgClick;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerChat;
@@ -36,20 +37,10 @@ import io.github.rookietec9.EnderPlugin.event.player.PlayerDamage;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerDeath;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerInteract;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerJoin;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.util.logging.Level;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class EnderPlugin extends JavaPlugin {
-    private FileConfiguration customConfig = null;
-    private File customConfigFile = null;
-
     public EnderPlugin() {
     }
 
@@ -59,7 +50,6 @@ public final class EnderPlugin extends JavaPlugin {
     }
 
     public void registerCommands() {
-        this.getLogger().info(EnderStrings.Error);
         this.getCommand("EnderSchedule").setExecutor(new EnderSchedule(this));
         this.getCommand("EnderKill").setExecutor(new EnderKill(this));
         this.getCommand("EnderHeal").setExecutor(new EnderHeal(this));
@@ -88,6 +78,7 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("EnderCount").setExecutor(new EnderCount());
         this.getCommand("EnderList").setExecutor(new EnderList(this));
         this.getCommand("EnderClear").setExecutor(new EnderClear(this));
+        this.getCommand("EnderGm").setExecutor(new EnderGM(this));
     }
 
     public void registerEvents() {
@@ -99,39 +90,7 @@ public final class EnderPlugin extends JavaPlugin {
         pm.registerEvents(new InventoryClick(), this);
         pm.registerEvents(new esgClick(), this);
         pm.registerEvents(new PlayerInteract(), this);
-    }
-
-    public void reloadESGConfig() {
-        if (this.customConfigFile == null) {
-            this.customConfigFile = new File(this.getDataFolder(), "esgConfig.yml");
-        }
-
-        this.customConfig = YamlConfiguration.loadConfiguration(this.customConfigFile);
-        Reader defConfigStream = new InputStreamReader(this.getResource("esgConfig.yml"));
-        if (defConfigStream != null) {
-            YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
-            this.customConfig.setDefaults(defConfig);
-        }
-
-    }
-
-    public FileConfiguration getESGConfig() {
-        if (this.customConfig == null) {
-            this.reloadESGConfig();
-        }
-
-        return this.customConfig;
-    }
-
-    public void saveESGConfig() {
-        if (this.customConfig != null && this.customConfigFile != null) {
-            try {
-                this.getESGConfig().save(this.customConfigFile);
-            } catch (IOException var2) {
-                this.getLogger().log(Level.SEVERE, "Could not save config to " + this.customConfigFile, var2);
-            }
-
-        }
+        pm.registerEvents(new AnvilRename(), this);
     }
 
     public void onDisable() {
