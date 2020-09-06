@@ -1,5 +1,6 @@
 package io.github.rookietec9.EnderPlugin.event.inventory;
 
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -16,6 +17,7 @@ public class AnvilRename implements Listener {
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
+        Bukkit.broadcastMessage("AnvilRename event registered.");
         if (!event.isCancelled()) {
             if (event.getInventory().getType() == InventoryType.ANVIL) {
                 if (event.getSlotType() == SlotType.RESULT) {

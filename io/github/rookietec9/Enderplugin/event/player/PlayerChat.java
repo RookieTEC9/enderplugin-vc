@@ -21,8 +21,8 @@ public class PlayerChat implements Listener {
 
         if (Message.contains("egg roll")) {
             event.setCancelled(false);
-            sender.sendTitle(ChatColor.DARK_RED + "Tasty", ChatColor.RED + "Can I have some?");
         }
 
+        sender.sendTitle(ChatColor.DARK_RED + "Tasty", ChatColor.RED + "Can I have some?");
     }
 }
