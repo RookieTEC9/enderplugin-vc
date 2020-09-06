@@ -17,7 +17,8 @@ public class PlayerJoin implements Listener {
     @EventHandler
     public void PlayerJoinEvent(PlayerJoinEvent Event) {
         Player Player = Event.getPlayer();
+        String Name = ChatColor.translateAlternateColorCodes('&', String.valueOf(this.plugin.getConfig().get(Player.getName())));
         Player.sendTitle(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Welcome Title")), ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Welcome Subtitle")));
-        Player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', String.valueOf(this.plugin.getConfig().get(Player.getName()))));
+        Player.setPlayerListName(Name + Player.getName());
     }
 }

@@ -19,22 +19,16 @@ public class EnderKick implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         String PlugMsg = ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message"));
         String Error = PlugMsg + "§4Error: §c";
-        String ConsoleNotAllowed = PlugMsg + "Consoles cannot use this command.";
-        String PlayerNotAllowed = PlugMsg + "Players cannot use this command.";
-        String BlockNotAllowed = PlugMsg + "CommandBlocks cannot use this command";
-        String OnlyUser = PlugMsg + "Only users can run this command.";
         String NoArgs = Error + "Not enough arguments.";
-        String MuchArgs = Error + "Too many arguments.";
-        String NoPlayer = Error + "The request player is offline";
         if (command.getName().equalsIgnoreCase("enderKick")) {
-            if (args.length <= 1) {
+            if (args.length < 1) {
                 sender.sendMessage(NoArgs);
                 return true;
             }
 
             Player player = Bukkit.getServer().getPlayer(args[0]);
             if (args.length == 1) {
-                player.kickPlayer("Had Nothing else to do.");
+                player.kickPlayer(sender.getName() + " had nothing else to do.");
                 return true;
             }
 

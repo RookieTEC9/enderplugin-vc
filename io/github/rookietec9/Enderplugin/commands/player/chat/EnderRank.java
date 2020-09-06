@@ -35,7 +35,7 @@ public class EnderRank implements CommandExecutor {
             } else if (args[0].equalsIgnoreCase("Owner") || args[0].equalsIgnoreCase("CO") || args[0].equalsIgnoreCase("MEMBER")) {
                 if (args[0].equalsIgnoreCase("OWNER")) {
                     player.setPlayerListName("§f[§e§lOWNER§r] " + string);
-                    this.plugin.getConfig().set(sender.getName(), "&f[&e&lOWNER&r] ");
+                    this.plugin.getConfig().set(sender.getName(), "&f[&e&lOWNER&r] " + sender.getName());
                     player.setCustomName("§§f[§e§lOWNER§r] " + customName);
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Registered Rank.");
                     this.plugin.saveConfig();
@@ -45,7 +45,7 @@ public class EnderRank implements CommandExecutor {
 
                 if (args[0].equalsIgnoreCase("CO")) {
                     player.setPlayerListName("§f[§1§lCO§r] " + string);
-                    this.plugin.getConfig().set(sender.getName(), "&r[&1&lCO&r] ");
+                    this.plugin.getConfig().set(sender.getName(), "&r[&1&lCO&r] " + sender.getName());
                     player.setCustomName("§f[§1§lCO§r] " + customName);
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Registered Rank.");
                     this.plugin.saveConfig();
@@ -56,7 +56,7 @@ public class EnderRank implements CommandExecutor {
                 if (args[0].equalsIgnoreCase("MEMBER")) {
                     List<String> Members = new ArrayList();
                     Members.add(String.valueOf(sender.getName()));
-                    this.plugin.getConfig().set(sender.getName(), "&f[§7&lMEMBER&r]");
+                    this.plugin.getConfig().set(sender.getName(), "&f[§7&lMEMBER&r] " + sender.getName());
                     player.setCustomName("§f[§7§lMEMBER§r] " + customName);
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Registered Rank.");
                     this.plugin.saveConfig();

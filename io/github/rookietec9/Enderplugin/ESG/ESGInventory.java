@@ -27,6 +27,5 @@ public class ESGInventory {
         buyMeta.setLore(buyLore);
         buyMenu.setItemMeta(buyMeta);
         ESGMenu.setItem(0, buyMenu);
-        ESGMenu.setItem(0, buyMenu);
     }
 }
