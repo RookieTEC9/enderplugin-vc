@@ -16,7 +16,7 @@ public class EnderClear implements CommandExecutor {
     }
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (command.getName().equalsIgnoreCase("enderKill")) {
+        if (command.getName().equalsIgnoreCase("enderClear")) {
             Player Sender = (Player)sender;
             PlayerInventory inv = Sender.getInventory();
             inv.clear();

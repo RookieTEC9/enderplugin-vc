@@ -11,7 +11,7 @@ public class EnderChatClear implements CommandExecutor {
     }
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (command.getName().equalsIgnoreCase("enderClear")) {
+        if (command.getName().equalsIgnoreCase("enderChatClear")) {
             String[] CC;
             int var8;
             if (args.length == 0) {
