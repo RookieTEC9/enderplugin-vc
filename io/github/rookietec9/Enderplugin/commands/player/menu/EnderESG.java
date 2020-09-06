@@ -34,9 +34,9 @@ public class EnderESG implements CommandExecutor {
                 Player Player = (Player)sender;
                 Inventory inv = Bukkit.createInventory(null, 45, "Choose Your Kit");
                 String Con = "ESG " + Player.getName();
-                FileConfiguration Config = YamlConfiguration.loadConfiguration(new File(this.plugin.getDataFolder(), Con));
+                FileConfiguration Config = YamlConfiguration.loadConfiguration(this.plugin.getResource(Con));
                 if (Config == null) {
-                    new File(this.plugin.getDataFolder(), Con);
+                    new File(this.plugin.getDataFolder(), Con + ".yml");
                 }
 
                 ItemStack HorseTamer = new ItemStack(Material.SADDLE);
