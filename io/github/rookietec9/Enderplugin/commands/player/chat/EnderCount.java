@@ -20,62 +20,86 @@ public class EnderCount implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("enderCount")) {
-            Bukkit.broadcastMessage("5");
-
-            try {
-                Thread.sleep(1000L);
-            } catch (InterruptedException var12) {
-                var12.printStackTrace();
-            }
-
-            Bukkit.broadcastMessage("4");
-
-            try {
-                Thread.sleep(1000L);
-            } catch (InterruptedException var11) {
-                var11.printStackTrace();
-            }
-
-            Bukkit.broadcastMessage("3");
-
-            try {
-                Thread.sleep(1000L);
-            } catch (InterruptedException var10) {
-                var10.printStackTrace();
-            }
-
-            Bukkit.broadcastMessage("2");
-
-            try {
-                Thread.sleep(1000L);
-            } catch (InterruptedException var9) {
-                var9.printStackTrace();
-            }
-
-            Bukkit.broadcastMessage("1");
-
-            try {
-                Thread.sleep(1000L);
-            } catch (InterruptedException var8) {
-                var8.printStackTrace();
-            }
-
-            Bukkit.broadcastMessage("GO");
-
-            try {
-                Thread.sleep(1000L);
-            } catch (InterruptedException var7) {
-                var7.printStackTrace();
-            }
-
             Iterator var5 = Bukkit.getServer().getOnlinePlayers().iterator();
 
             while(var5.hasNext()) {
-                Player player1 = (Player)var5.next();
-                player1.sendTitle("GO", "It starts now");
+                Player five = (Player)var5.next();
+                five.sendTitle("5", "Its starting... Get Ready");
+                five.sendMessage("[5] seconds until start. ");
+
+                try {
+                    Thread.sleep(1000L);
+                } catch (InterruptedException var15) {
+                    var15.printStackTrace();
+                }
+
+                Iterator var7 = Bukkit.getServer().getOnlinePlayers().iterator();
+
+                while(var7.hasNext()) {
+                    Player four = (Player)var7.next();
+                    four.sendTitle("4", "Its starting... Get Ready");
+                    four.sendMessage("[4] seconds until start. ");
+
+                    try {
+                        Thread.sleep(1000L);
+                    } catch (InterruptedException var14) {
+                        var14.printStackTrace();
+                    }
+
+                    Iterator var9 = Bukkit.getServer().getOnlinePlayers().iterator();
+
+                    Player player;
+                    while(var9.hasNext()) {
+                        player = (Player)var9.next();
+                        player.sendTitle("3", "Its starting... Get Ready");
+                        player.sendMessage("[3] seconds until start. ");
+                    }
+
+                    try {
+                        Thread.sleep(1000L);
+                    } catch (InterruptedException var13) {
+                        var13.printStackTrace();
+                    }
+
+                    var9 = Bukkit.getServer().getOnlinePlayers().iterator();
+
+                    while(var9.hasNext()) {
+                        player = (Player)var9.next();
+                        player.sendTitle("2", "Its starting... Get Ready");
+                        player.sendMessage("[2] seconds until start. ");
+                    }
+
+                    try {
+                        Thread.sleep(1000L);
+                    } catch (InterruptedException var12) {
+                        var12.printStackTrace();
+                    }
+
+                    var9 = Bukkit.getServer().getOnlinePlayers().iterator();
+
+                    while(var9.hasNext()) {
+                        player = (Player)var9.next();
+                        player.sendTitle("1", "Its starting... Get Ready");
+                        player.sendMessage("[1] seconds until start. ");
+                    }
+
+                    try {
+                        Thread.sleep(1000L);
+                    } catch (InterruptedException var11) {
+                        var11.printStackTrace();
+                    }
+
+                    var9 = Bukkit.getServer().getOnlinePlayers().iterator();
+
+                    while(var9.hasNext()) {
+                        player = (Player)var9.next();
+                        player.sendTitle("GO", "It starts now");
+                        player.sendMessage("What are you waiting for?");
+                    }
+                }
             }
         }
 
-        return false;
+        return true;
     }
 }

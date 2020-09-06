@@ -7,7 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class EnderGM implements EnderCommand {
+public class EnderGM extends EnderCommand {
     public EnderGM() {
     }
 
@@ -16,11 +16,6 @@ public class EnderGM implements EnderCommand {
 
     public boolean onCommand(CommandSender sender, Command command, String[] args) {
         if (command.getName().equalsIgnoreCase("EnderGM")) {
-            if (args.length == 0) {
-                sender.sendMessage(NoArgs);
-                return true;
-            }
-
             Player target;
             if (args.length == 1) {
                 if (!(args[0].equalsIgnoreCase("A") | args[0].equalsIgnoreCase("S") | args[0].equalsIgnoreCase("C") | args[0].equalsIgnoreCase("SP") | args[0].equalsIgnoreCase("0") | args[0].equalsIgnoreCase("1") | args[0].equalsIgnoreCase("2") | args[0].equalsIgnoreCase("3"))) {

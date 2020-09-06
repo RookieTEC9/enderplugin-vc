@@ -1,4 +1,4 @@
-package io.github.rookietec9.EnderPlugin.commands.player.item;
+package io.github.rookietec9.EnderPlugin.commands.player.VanillaMenu;
 
 import io.github.rookietec9.EnderPlugin.EnderPlugin;
 import org.bukkit.ChatColor;

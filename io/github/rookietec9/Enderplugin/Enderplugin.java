@@ -4,6 +4,7 @@ import io.github.rookietec9.EnderPlugin.ESG.ESGLevel;
 import io.github.rookietec9.EnderPlugin.commands.config.EnderReload;
 import io.github.rookietec9.EnderPlugin.commands.config.EnderSave;
 import io.github.rookietec9.EnderPlugin.commands.multiworld.EnderWorld;
+import io.github.rookietec9.EnderPlugin.commands.player.VanillaMenu.EnderCraft;
 import io.github.rookietec9.EnderPlugin.commands.player.chat.EnderAnon;
 import io.github.rookietec9.EnderPlugin.commands.player.chat.EnderCount;
 import io.github.rookietec9.EnderPlugin.commands.player.chat.EnderData;
@@ -13,7 +14,6 @@ import io.github.rookietec9.EnderPlugin.commands.player.chat.EnderRank;
 import io.github.rookietec9.EnderPlugin.commands.player.damagable.EnderFinish;
 import io.github.rookietec9.EnderPlugin.commands.player.damagable.EnderHeal;
 import io.github.rookietec9.EnderPlugin.commands.player.damagable.EnderKill;
-import io.github.rookietec9.EnderPlugin.commands.player.item.EnderCraft;
 import io.github.rookietec9.EnderPlugin.commands.player.item.EnderEnchant;
 import io.github.rookietec9.EnderPlugin.commands.player.item.EnderItem;
 import io.github.rookietec9.EnderPlugin.commands.player.item.EnderRename;
@@ -32,6 +32,9 @@ import io.github.rookietec9.EnderPlugin.event.player.PlayerChat;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerDamage;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerDeath;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerJoin;
+import java.io.File;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -41,7 +44,8 @@ public final class EnderPlugin extends JavaPlugin {
 
     public void onEnable() {
         this.registerCommands();
-        this.RegisterEvents();
+        this.registerEvents();
+        this.registerConfigs();
     }
 
     public void registerCommands() {
@@ -69,11 +73,11 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("EnderFly").setExecutor(new EnderFly(this));
         this.getCommand("EnderTwerk").setExecutor(new EnderTwerk(this));
         this.getCommand("EnderWorld").setExecutor(new EnderWorld(this));
-        this.getCommand("ESGLevel").setExecutor(new ESGLevel());
+        this.getCommand("ESGLevel").setExecutor(new ESGLevel(this));
         this.getCommand("EnderCount").setExecutor(new EnderCount());
     }
 
-    public void RegisterEvents() {
+    public void registerEvents() {
         PluginManager pm = this.getServer().getPluginManager();
         pm.registerEvents(new PlayerChat(), this);
         pm.registerEvents(new PlayerDeath(), this);
@@ -81,6 +85,18 @@ public final class EnderPlugin extends JavaPlugin {
         pm.registerEvents(new PlayerJoin(this), this);
         pm.registerEvents(new InventoryClick(), this);
         pm.registerEvents(new esgClick(), this);
+    }
+
+    public void registerConfigs() {
+        FileConfiguration ESGCONFIG = YamlConfiguration.loadConfiguration(new File(this.getDataFolder(), "ESGLEVEL.yml"));
+        if (ESGCONFIG != null) {
+            this.getLogger().info("ESG Config found.");
+        }
+
+        if (ESGCONFIG == null) {
+            YamlConfiguration.loadConfiguration(new File(this.getDataFolder(), "ESGLEVEL.yml"));
+        }
+
     }
 
     public void onDisable() {
