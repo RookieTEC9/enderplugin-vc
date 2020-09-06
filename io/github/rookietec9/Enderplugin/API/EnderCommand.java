@@ -2,7 +2,6 @@ package io.github.rookietec9.EnderPlugin.API;
 
 import io.github.rookietec9.EnderPlugin.EnderPlugin;
 import org.bukkit.ChatColor;
-import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -28,8 +27,12 @@ public abstract class EnderCommand {
 
     public abstract boolean onCommand(CommandSender var1, Command var2, String[] var3);
 
-    protected Player getPlayer(Server server, String[] args, Player player) {
-        return null;
+    protected Boolean isPlayer(CommandSender sender) throws Exception {
+        if (!(sender instanceof Player)) {
+            throw notPlayer;
+        } else {
+            throw notPlayer;
+        }
     }
 
     static {
