@@ -23,12 +23,17 @@ public class PlayerJoin implements Listener {
         if (this.plugin.getConfig().get(Event.getPlayer().getName(), "Owner") != null) {
             Event.getPlayer().setPlayerListName("§f[§e§lOWNER§r] " + Name);
             Event.getPlayer().setCustomName("§f[§e§lOWNER§r]" + customName);
-        } else if (this.plugin.getConfig().get(Event.getPlayer().getName(), "Co") != null) {
+        }
+
+        if (this.plugin.getConfig().get(Event.getPlayer().getName(), "Co") != null) {
             Event.getPlayer().setPlayerListName("§f[§1§lCO§r] " + Name);
             Event.getPlayer().setCustomName("§f[§1§lCO§r] " + customName);
-        } else if (this.plugin.getConfig().get(Event.getPlayer().getName(), "Members") != null) {
+        }
+
+        if (this.plugin.getConfig().get(Event.getPlayer().getName(), "Members") != null) {
             Event.getPlayer().setPlayerListName("§f[§7§lMEMBER§r] " + Name);
             Event.getPlayer().setCustomName("§f[§7§lMEMBER§r] " + customName);
         }
+
     }
 }

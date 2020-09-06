@@ -44,6 +44,7 @@ public class EnderRank implements CommandExecutor {
                 }
 
                 if (args[0].equalsIgnoreCase("CO")) {
+                    player.setPlayerListName("§f[§1§lCO§r] " + string);
                     this.plugin.getConfig().set(sender.getName(), "Co");
                     player.setCustomName("§f[§1§lCO§r] " + customName);
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Registered Rank.");
@@ -53,7 +54,6 @@ public class EnderRank implements CommandExecutor {
                 }
 
                 if (args[0].equalsIgnoreCase("MEMBER")) {
-                    player.setPlayerListName("§f[§7§lMEMBER§r] " + string);
                     List<String> Members = new ArrayList();
                     Members.add(String.valueOf(sender.getName()));
                     this.plugin.getConfig().set("Members", Members);

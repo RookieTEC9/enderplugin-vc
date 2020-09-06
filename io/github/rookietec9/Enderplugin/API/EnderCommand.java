@@ -8,13 +8,14 @@ import org.bukkit.command.CommandSender;
 public interface EnderCommand {
     EnderPlugin plugin = null;
     String PlugMsg = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Plug Message"));
+    String Error = PlugMsg + "§4Error: §c";
     String ConsoleNotAllowed = PlugMsg + "Consoles cannot use this command.";
     String PlayerNotAllowed = PlugMsg + "Players cannot use this command.";
     String BlockNotAllowed = PlugMsg + "CommandBlocks cannot use this command";
     String OnlyUser = PlugMsg + "Only users can run this command.";
-    String NoArgs = PlugMsg + "Not enough arguments.";
-    String MuchArgs = PlugMsg + "Too many arguments.";
-    String NoPlayer = PlugMsg + "The request player is offline";
+    String NoArgs = Error + "Not enough arguments.";
+    String MuchArgs = Error + "Too many arguments.";
+    String NoPlayer = Error + "The request player is offline";
 
     void Ender(EnderPlugin var1);
 

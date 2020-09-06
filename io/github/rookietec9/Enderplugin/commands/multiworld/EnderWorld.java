@@ -4,8 +4,6 @@ import io.github.rookietec9.EnderPlugin.EnderPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.WorldCreator;
-import org.bukkit.WorldType;
-import org.bukkit.World.Environment;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -40,7 +38,7 @@ public class EnderWorld implements CommandExecutor {
 
             if (args[0].equalsIgnoreCase("create")) {
                 if (args.length == 1) {
-                    if (args[0] == null) {
+                    if (args[1] == null) {
                         sender.sendMessage("Please specify a world name");
                     }
 
@@ -49,8 +47,8 @@ public class EnderWorld implements CommandExecutor {
                 }
 
                 if (args[0].equalsIgnoreCase("tp")) {
-                    if (args.length >= 2) {
-                        player.sendMessage("/endertp world");
+                    if (args.length > 2) {
+                        player.sendMessage("/enderworld tp world");
                         return true;
                     }
 
@@ -63,12 +61,6 @@ public class EnderWorld implements CommandExecutor {
                     player.teleport(loc);
                 }
             }
-
-            WorldCreator World = this.plugin.getServer().createWorld(new WorldCreator(args[0]));
-            World.generateStructures(true);
-            World.environment(Environment.NORMAL);
-            World.type(WorldType.NORMAL);
-            World.seed(Long.parseLong(args[1]));
         }
 
         return true;

@@ -1,5 +1,6 @@
 package io.github.rookietec9.EnderPlugin;
 
+import io.github.rookietec9.EnderPlugin.ESG.ESGLevel;
 import io.github.rookietec9.EnderPlugin.commands.config.EnderReload;
 import io.github.rookietec9.EnderPlugin.commands.config.EnderSave;
 import io.github.rookietec9.EnderPlugin.commands.multiworld.EnderWorld;
@@ -67,6 +68,7 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("EnderFly").setExecutor(new EnderFly(this));
         this.getCommand("EnderTwerk").setExecutor(new EnderTwerk(this));
         this.getCommand("EnderWorld").setExecutor(new EnderWorld(this));
+        this.getCommand("ESGLevel").setExecutor(new ESGLevel());
     }
 
     public void RegisterEvents() {
@@ -82,4 +84,4 @@ public final class EnderPlugin extends JavaPlugin {
     public void onDisable() {
         this.getLogger().info("EnderPlugin by TEC9 has shut down.");
     }
-} //plugin.yml edit
+}
