@@ -1,6 +1,8 @@
 package io.github.rookietec9.EnderPlugin;
 
 import io.github.rookietec9.EnderPlugin.ESG.ESGLevel;
+import io.github.rookietec9.EnderPlugin.ESG.PickClassOpenEvent;
+import io.github.rookietec9.EnderPlugin.ESG.PickClassPickEvent;
 import io.github.rookietec9.EnderPlugin.commands.config.EnderReload;
 import io.github.rookietec9.EnderPlugin.commands.config.EnderSave;
 import io.github.rookietec9.EnderPlugin.commands.multiworld.EnderWorldTP;
@@ -33,7 +35,6 @@ import io.github.rookietec9.EnderPlugin.commands.text.EnderVersion;
 import io.github.rookietec9.EnderPlugin.commands.text.EnderYT;
 import io.github.rookietec9.EnderPlugin.event.inventory.AnvilRename;
 import io.github.rookietec9.EnderPlugin.event.inventory.InventoryClick;
-import io.github.rookietec9.EnderPlugin.event.inventory.esgClick;
 import io.github.rookietec9.EnderPlugin.event.player.EnderChatEggs;
 import io.github.rookietec9.EnderPlugin.event.player.EnderFishingRod;
 import io.github.rookietec9.EnderPlugin.event.player.PlayerDamage;
@@ -101,15 +102,17 @@ public final class EnderPlugin extends JavaPlugin {
         pm.registerEvents(new PlayerJoin(this), this);
         this.getLogger().info("Registering Event : InventoryClick.class");
         pm.registerEvents(new InventoryClick(), this);
-        this.getLogger().info("Registering Event : esgClick.class");
-        pm.registerEvents(new esgClick(), this);
         this.getLogger().info("Registering Event : PlayerInteract.class");
         pm.registerEvents(new EnderFishingRod(), this);
         this.getLogger().info("Registering Event : AnvilRename.class");
         pm.registerEvents(new AnvilRename(), this);
+        this.getLogger().info("Registering ESG Event : PickClassOpenEvent");
+        pm.registerEvents(new PickClassOpenEvent(), this);
+        this.getLogger().info("Registering ESG Event : PickClassOpenEvent");
+        pm.registerEvents(new PickClassPickEvent(), this);
     }
 
     public void onDisable() {
-        this.getLogger().info("EnderPlugin by TEC9 has shut down.");
+        this.getLogger().info("EnderPlugin by TEC9 has shut down. :D");
     }
 }

@@ -4,6 +4,7 @@ import io.github.rookietec9.EnderPlugin.EnderPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -35,6 +36,7 @@ public class EnderWorldTP implements CommandExecutor {
             } else {
                 Args2 = (Player)sender;
                 Loc = Bukkit.getWorld(args[0]).getSpawnLocation();
+                World Woc = Bukkit.getWorld(args[0]);
                 if (Loc == null) {
                     Args2.sendMessage(PlugMsg + "could not find that world.");
                     return true;
