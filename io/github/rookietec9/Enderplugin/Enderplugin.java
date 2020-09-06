@@ -5,6 +5,7 @@ import io.github.rookietec9.EnderPlugin.commands.config.EnderReload;
 import io.github.rookietec9.EnderPlugin.commands.config.EnderSave;
 import io.github.rookietec9.EnderPlugin.commands.multiworld.EnderWorld;
 import io.github.rookietec9.EnderPlugin.commands.player.chat.EnderAnon;
+import io.github.rookietec9.EnderPlugin.commands.player.chat.EnderCount;
 import io.github.rookietec9.EnderPlugin.commands.player.chat.EnderData;
 import io.github.rookietec9.EnderPlugin.commands.player.chat.EnderFake;
 import io.github.rookietec9.EnderPlugin.commands.player.chat.EnderHug;
@@ -69,6 +70,7 @@ public final class EnderPlugin extends JavaPlugin {
         this.getCommand("EnderTwerk").setExecutor(new EnderTwerk(this));
         this.getCommand("EnderWorld").setExecutor(new EnderWorld(this));
         this.getCommand("ESGLevel").setExecutor(new ESGLevel());
+        this.getCommand("EnderCount").setExecutor(new EnderCount());
     }
 
     public void RegisterEvents() {

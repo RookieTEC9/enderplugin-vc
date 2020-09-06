@@ -46,12 +46,12 @@ public class EnderFly implements CommandExecutor {
             }
 
             if (args.length == 1) {
-                if (args[1].equalsIgnoreCase("ON")) {
+                if (args[0].equalsIgnoreCase("ON")) {
                     player.setAllowFlight(true);
                     return true;
                 }
 
-                if (args[1].equalsIgnoreCase("OFF")) {
+                if (args[0].equalsIgnoreCase("OFF")) {
                     player.setAllowFlight(false);
                     return true;
                 }
@@ -60,18 +60,18 @@ public class EnderFly implements CommandExecutor {
             }
 
             if (args.length == 2) {
-                Player target = sender.getServer().getPlayer(args[1]);
+                Player target = sender.getServer().getPlayer(args[0]);
                 if (target == null) {
                     sender.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Plug Message")) + "Requested player is not online.");
                     return true;
                 }
 
-                if (args[2] == "on") {
+                if (args[1] == "on") {
                     player.setAllowFlight(true);
                     return true;
                 }
 
-                if (args[2] == "off") {
+                if (args[1] == "off") {
                     player.setAllowFlight(false);
                     return true;
                 }
